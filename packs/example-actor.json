@@ -1,0 +1,35 @@
+{
+  "name": "Aric Stormblade",
+  "type": "character",
+  "img": "icons/skills/melee/sword-strike-yellow.webp",
+  "system": {
+    "attributes": {
+      "strength": 15,
+      "dexterity": 12,
+      "constitution": 14,
+      "intelligence": 10,
+      "wisdom": 11,
+      "charisma": 13,
+      "hp": 30,
+      "initiative": 2
+    }
+  },
+  "items": [],
+  "effects": [],
+  "folder": null,
+  "flags": {},
+  "token": {
+    "name": "Aric Stormblade",
+    "displayName": 20,
+    "img": "icons/skills/melee/sword-strike-yellow.webp",
+    "scale": 1,
+    "mirrorX": false,
+    "mirrorY": false,
+    "lockRotation": false,
+    "rotation": 0,
+    "vision": true,
+    "dimSight": 30,
+    "brightSight": 0,
+    "actorLink": true
+  }
+}

@@ -1,0 +1,27 @@
+<section class="evermore-sheet">
+    <header class="sheet-header">
+        <h1>{{actor.name}}</h1>
+    </header>
+
+    <section class="sheet-body">
+        <div class="attributes">
+            <h2>Attributes</h2>
+            <ul>
+                <li><strong>Strength:</strong> {{actor.system.attributes.strength}}</li>
+                <li><strong>Dexterity:</strong> {{actor.system.attributes.dexterity}}</li>
+                <li><strong>Constitution:</strong> {{actor.system.attributes.constitution}}</li>
+                <li><strong>Intelligence:</strong> {{actor.system.attributes.intelligence}}</li>
+                <li><strong>Wisdom:</strong> {{actor.system.attributes.wisdom}}</li>
+                <li><strong>Charisma:</strong> {{actor.system.attributes.charisma}}</li>
+            </ul>
+        </div>
+
+        <div class="combat">
+            <h2>Combat Stats</h2>
+            <ul>
+                <li><strong>Hit Points:</strong> {{actor.system.attributes.hp}}</li>
+                <li><strong>Initiative:</strong> {{actor.system.attributes.initiative}}</li>
+            </ul>
+        </div>
+    </section>
+</section>

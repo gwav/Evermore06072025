@@ -1,0 +1,19 @@
+/* Evermore RPG System - Basic Styles */
+:root {
+    --evermore-primary-color: #4A90E2;
+    --evermore-secondary-color: #2C3E50;
+}
+
+.window-content {
+    font-family: "Arial", sans-serif;
+    color: var(--evermore-primary-color);
+}
+
+.sheet-header {
+    background-color: var(--evermore-secondary-color);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.2em;
+    border-bottom: 2px solid var(--evermore-primary-color);
+}

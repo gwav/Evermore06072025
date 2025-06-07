@@ -1,0 +1,27 @@
+{
+  "system": {
+    "name": "Evermore RPG System",
+    "description": "A custom RPG system for Foundry VTT."
+  },
+  "attributes": {
+    "strength": "Strength",
+    "dexterity": "Dexterity",
+    "constitution": "Constitution",
+    "intelligence": "Intelligence",
+    "wisdom": "Wisdom",
+    "charisma": "Charisma",
+    "hp": "Hit Points",
+    "initiative": "Initiative"
+  },
+  "ui": {
+    "roll": "Roll",
+    "attack": "Attack",
+    "damage": "Damage",
+    "save": "Saving Throw",
+    "skillCheck": "Skill Check"
+  },
+  "messages": {
+    "welcome": "Welcome to Evermore RPG!",
+    "error": "An error occurred. Please try again."
+  }
+}
