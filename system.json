@@ -1,0 +1,28 @@
+{
+  "id": "evermore",
+  "title": "Evermore RPG System",
+  "description": "A custom RPG system for Foundry VTT.",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+  "author": "Brian Scott and Gary Allgeier",
+  "esmodules": [ "scripts/main.js" ],
+  "styles": [ "styles/style.css" ],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "languages/en.json"
+    }
+  ],
+  "initiative": "dex",
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "attributes.hp",
+  "manifest": "https://github.com/gwav/Evermore06072025/raw/main/system.json",
+  "download": "https://github.com/gwav/Evermore06072025/archive/main.zip",
+  "license": "LICENSE.txt"
+}

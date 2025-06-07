@@ -1,0 +1,11 @@
+Evermore RPG System License
+
+Copyright (c) 2025 Brian Scott and Gary Allgeier
+
+Permission is granted to use, modify, and distribute this system for personal, non-commercial purposes. 
+
+Commercial use, redistribution for profit, or inclusion in paid products requires explicit permission from the authors.
+
+This system is provided "as is" without warranty of any kind.
+
+Authors: Brian Scott and Gary Allgeier
