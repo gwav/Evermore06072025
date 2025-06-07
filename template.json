@@ -1,0 +1,23 @@
+{
+  "Actor": {
+    "types": [ "character", "npc" ],
+    "templates": {
+      "base": {
+        "attributes": {
+          "hp": {
+            "value": 10,
+            "max": 10
+          }
+        }
+      }
+    }
+  },
+  "Item": {
+    "types": [ "weapon", "armor" ],
+    "templates": {
+      "base": {
+        "description": ""
+      }
+    }
+  }
+}
