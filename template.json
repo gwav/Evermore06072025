@@ -7,6 +7,36 @@
           "hp": {
             "value": 10,
             "max": 10
+          },
+          "strength": {
+            "value": 8,
+            "max": 18,
+            "description": "Measures bodily power, athletic training, and raw physical force."
+          },
+          "dexterity": {
+            "value": 8,
+            "max": 18,
+            "description": "Measures agility, reflexes, and balance."
+          },
+          "constitution": {
+            "value": 8,
+            "max": 18,
+            "description": "Measures health, stamina, and vital force."
+          },
+          "intelligence": {
+            "value": 8,
+            "max": 18,
+            "description": "Measures mental acuity, recall, and reasoning."
+          },
+          "wisdom": {
+            "value": 8,
+            "max": 18,
+            "description": "Reflects perceptiveness, intuition, and attunement to the world."
+          },
+          "charisma": {
+            "value": 8,
+            "max": 18,
+            "description": "Measures ability to interact, confidence, and personality."
           }
         }
       }
