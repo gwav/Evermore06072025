@@ -17,3 +17,20 @@
     font-size: 1.2em;
     border-bottom: 2px solid var(--evermore-primary-color);
 }
+
+.evermore-sheet .attributes ul {
+  list-style: none;
+  padding: 0;
+}
+.evermore-sheet .attributes li {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 0.25em;
+}
+.evermore-sheet .attributes input[type="number"] {
+  width: 50px;
+}
+.evermore-sheet .attributes span {
+  width: 100px;
+}
