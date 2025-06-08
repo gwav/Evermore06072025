@@ -11,20 +11,19 @@ Hooks.once("init", () => {
         default: "strength"
     });
 
-    // Define a basic actor type
+    // Define a basic actor type with default attributes
     CONFIG.Actor.documentClass = class EvermoreActor extends Actor {
         prepareData() {
             super.prepareData();
-            console.log("Evermore RPG System | Preparing actor data...");
-            // Initialize default attributes if missing
+            // Ensure attributes exist and are initialized
             if (!this.system.attributes) this.system.attributes = {};
             const defaults = {
-                strength: { value: 8, max: 18 },
-                dexterity: { value: 8, max: 18 },
-                constitution: { value: 8, max: 18 },
-                intelligence: { value: 8, max: 18 },
-                wisdom: { value: 8, max: 18 },
-                charisma: { value: 8, max: 18 },
+                strength: { value: 8, max: 18, description: "Measures bodily power, athletic training, and raw physical force." },
+                dexterity: { value: 8, max: 18, description: "Measures agility, reflexes, and balance." },
+                constitution: { value: 8, max: 18, description: "Measures health, stamina, and vital force." },
+                intelligence: { value: 8, max: 18, description: "Measures mental acuity, recall, and reasoning." },
+                wisdom: { value: 8, max: 18, description: "Reflects perceptiveness, intuition, and attunement to the world." },
+                charisma: { value: 8, max: 18, description: "Measures ability to interact, confidence, and personality." },
                 hp: { value: 10, max: 10 }
             };
             for (const [key, val] of Object.entries(defaults)) {
@@ -33,29 +32,29 @@ Hooks.once("init", () => {
         }
     };
 
-    // Register the character sheet
+    // Register the character sheet for both character and npc types
     Actors.unregisterSheet("core", ActorSheet);
     Actors.registerSheet("evermore", class EvermoreCharacterSheet extends ActorSheet {
         get template() {
             return "systems/evermore/templates/character-sheet.html";
         }
-    }, { types: ["character"], makeDefault: true });
+    }, { types: ["character", "npc"], makeDefault: true });
 
     console.log("Evermore RPG System | Initialization complete!");
 });
 
-// Ensure new actors get default attributes
+// Ensure new actors get default attributes on creation
 Hooks.on("preCreateActor", (actor, data, options, userId) => {
-    if (actor.type === "character") {
+    if (actor.type === "character" || actor.type === "npc") {
         if (!data.system) data.system = {};
         if (!data.system.attributes) {
             data.system.attributes = {
-                strength: { value: 8, max: 18 },
-                dexterity: { value: 8, max: 18 },
-                constitution: { value: 8, max: 18 },
-                intelligence: { value: 8, max: 18 },
-                wisdom: { value: 8, max: 18 },
-                charisma: { value: 8, max: 18 },
+                strength: { value: 8, max: 18, description: "Measures bodily power, athletic training, and raw physical force." },
+                dexterity: { value: 8, max: 18, description: "Measures agility, reflexes, and balance." },
+                constitution: { value: 8, max: 18, description: "Measures health, stamina, and vital force." },
+                intelligence: { value: 8, max: 18, description: "Measures mental acuity, recall, and reasoning." },
+                wisdom: { value: 8, max: 18, description: "Reflects perceptiveness, intuition, and attunement to the world." },
+                charisma: { value: 8, max: 18, description: "Measures ability to interact, confidence, and personality." },
                 hp: { value: 10, max: 10 }
             };
         }

@@ -7,20 +7,40 @@
         <div class="attributes">
             <h2>Attributes</h2>
             <ul>
-                <li><strong>Strength:</strong> {{actor.system.attributes.strength}}</li>
-                <li><strong>Dexterity:</strong> {{actor.system.attributes.dexterity}}</li>
-                <li><strong>Constitution:</strong> {{actor.system.attributes.constitution}}</li>
-                <li><strong>Intelligence:</strong> {{actor.system.attributes.intelligence}}</li>
-                <li><strong>Wisdom:</strong> {{actor.system.attributes.wisdom}}</li>
-                <li><strong>Charisma:</strong> {{actor.system.attributes.charisma}}</li>
+                <li>
+                    <strong>Strength:</strong> {{actor.system.attributes.strength.value}}
+                    <span class="attr-desc">{{actor.system.attributes.strength.description}}</span>
+                </li>
+                <li>
+                    <strong>Dexterity:</strong> {{actor.system.attributes.dexterity.value}}
+                    <span class="attr-desc">{{actor.system.attributes.dexterity.description}}</span>
+                </li>
+                <li>
+                    <strong>Constitution:</strong> {{actor.system.attributes.constitution.value}}
+                    <span class="attr-desc">{{actor.system.attributes.constitution.description}}</span>
+                </li>
+                <li>
+                    <strong>Intelligence:</strong> {{actor.system.attributes.intelligence.value}}
+                    <span class="attr-desc">{{actor.system.attributes.intelligence.description}}</span>
+                </li>
+                <li>
+                    <strong>Wisdom:</strong> {{actor.system.attributes.wisdom.value}}
+                    <span class="attr-desc">{{actor.system.attributes.wisdom.description}}</span>
+                </li>
+                <li>
+                    <strong>Charisma:</strong> {{actor.system.attributes.charisma.value}}
+                    <span class="attr-desc">{{actor.system.attributes.charisma.description}}</span>
+                </li>
             </ul>
         </div>
 
         <div class="combat">
             <h2>Combat Stats</h2>
             <ul>
-                <li><strong>Hit Points:</strong> {{actor.system.attributes.hp}}</li>
-                <li><strong>Initiative:</strong> {{actor.system.attributes.initiative}}</li>
+                <li>
+                    <strong>Hit Points:</strong>
+                    {{actor.system.attributes.hp.value}} / {{actor.system.attributes.hp.max}}
+                </li>
             </ul>
         </div>
     </section>
