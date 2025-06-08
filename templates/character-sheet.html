@@ -8,30 +8,43 @@
             <h2>Attributes</h2>
             <ul>
                 <li>
-                    <strong>Strength:</strong> {{actor.system.attributes.strength.value}}
+                    <strong>Strength:</strong>
+                    <input type="number" class="attr-input" name="system.attributes.strength.value" value="{{actor.system.attributes.strength.value}}" min="1" max="18" data-attr="strength" />
+                    <button type="button" class="roll-attribute" data-attr="strength">Roll</button>
                     <span class="attr-desc">{{actor.system.attributes.strength.description}}</span>
                 </li>
                 <li>
-                    <strong>Dexterity:</strong> {{actor.system.attributes.dexterity.value}}
+                    <strong>Dexterity:</strong>
+                    <input type="number" class="attr-input" name="system.attributes.dexterity.value" value="{{actor.system.attributes.dexterity.value}}" min="1" max="18" data-attr="dexterity" />
+                    <button type="button" class="roll-attribute" data-attr="dexterity">Roll</button>
                     <span class="attr-desc">{{actor.system.attributes.dexterity.description}}</span>
                 </li>
                 <li>
-                    <strong>Constitution:</strong> {{actor.system.attributes.constitution.value}}
+                    <strong>Constitution:</strong>
+                    <input type="number" class="attr-input" name="system.attributes.constitution.value" value="{{actor.system.attributes.constitution.value}}" min="1" max="18" data-attr="constitution" />
+                    <button type="button" class="roll-attribute" data-attr="constitution">Roll</button>
                     <span class="attr-desc">{{actor.system.attributes.constitution.description}}</span>
                 </li>
                 <li>
-                    <strong>Intelligence:</strong> {{actor.system.attributes.intelligence.value}}
+                    <strong>Intelligence:</strong>
+                    <input type="number" class="attr-input" name="system.attributes.intelligence.value" value="{{actor.system.attributes.intelligence.value}}" min="1" max="18" data-attr="intelligence" />
+                    <button type="button" class="roll-attribute" data-attr="intelligence">Roll</button>
                     <span class="attr-desc">{{actor.system.attributes.intelligence.description}}</span>
                 </li>
                 <li>
-                    <strong>Wisdom:</strong> {{actor.system.attributes.wisdom.value}}
+                    <strong>Wisdom:</strong>
+                    <input type="number" class="attr-input" name="system.attributes.wisdom.value" value="{{actor.system.attributes.wisdom.value}}" min="1" max="18" data-attr="wisdom" />
+                    <button type="button" class="roll-attribute" data-attr="wisdom">Roll</button>
                     <span class="attr-desc">{{actor.system.attributes.wisdom.description}}</span>
                 </li>
                 <li>
-                    <strong>Charisma:</strong> {{actor.system.attributes.charisma.value}}
+                    <strong>Charisma:</strong>
+                    <input type="number" class="attr-input" name="system.attributes.charisma.value" value="{{actor.system.attributes.charisma.value}}" min="1" max="18" data-attr="charisma" />
+                    <button type="button" class="roll-attribute" data-attr="charisma">Roll</button>
                     <span class="attr-desc">{{actor.system.attributes.charisma.description}}</span>
                 </li>
             </ul>
+            <button type="button" id="roll-all-attributes">Roll All</button>
         </div>
 
         <div class="combat">
@@ -39,7 +52,8 @@
             <ul>
                 <li>
                     <strong>Hit Points:</strong>
-                    {{actor.system.attributes.hp.value}} / {{actor.system.attributes.hp.max}}
+                    <input type="number" name="system.attributes.hp.value" value="{{actor.system.attributes.hp.value}}" min="0" max="{{actor.system.attributes.hp.max}}" />
+                    / {{actor.system.attributes.hp.max}}
                 </li>
             </ul>
         </div>
