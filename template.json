@@ -49,5 +49,15 @@
         "description": ""
       }
     }
+  },
+  "htmlTemplate": {
+    "attributesList": [
+      "<li><strong>Strength:</strong> {{actor.system.attributes.strength.value}}</li>",
+      "<li><strong>Dexterity:</strong> {{actor.system.attributes.dexterity.value}}</li>",
+      "<li><strong>Constitution:</strong> {{actor.system.attributes.constitution.value}}</li>",
+      "<li><strong>Intelligence:</strong> {{actor.system.attributes.intelligence.value}}</li>",
+      "<li><strong>Wisdom:</strong> {{actor.system.attributes.wisdom.value}}</li>",
+      "<li><strong>Charisma:</strong> {{actor.system.attributes.charisma.value}}</li>"
+    ]
   }
 }
