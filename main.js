@@ -27,5 +27,10 @@ Hooks.once("init", () => {
         }
     }, { types: ["character"], makeDefault: true });
 
+    Actors.registerSheet("evermore", EvermoreActorSheet, { 
+        types: ["character", "npc"], 
+        makeDefault: true 
+    });
+
     console.log("Evermore RPG System | Initialization complete!");
 });
