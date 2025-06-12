@@ -8,7 +8,7 @@
     "verified": "13"
   },
   "author": "Brian Scott and Gary Allgeier",
-  "esmodules": [ "main.js" ],
+  "esmodules": [ "scripts/main.js" ],
   "styles": [ "styles/style.css" ],
   "packs": [],
   "languages": [
@@ -21,7 +21,7 @@
   "initiative": "dexterity",
   "gridDistance": 5,
   "gridUnits": "ft",
-  "primaryTokenAttribute": "attributes.hp",
+  "primaryTokenAttribute": "hp",    // is the field inportant????????????????????????????????????????????
   "manifest": "https://github.com/gwav/Evermore06072025/raw/main/system.json",
   "download": "https://github.com/gwav/Evermore06072025/archive/main.zip",
   "license": "LICENSE.txt"

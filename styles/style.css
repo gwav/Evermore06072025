@@ -34,3 +34,54 @@
 .evermore-sheet .attributes span {
   width: 100px;
 }
+
+.roll-attribute {
+  padding: 2px 6px;
+  font-size: 0.9em;
+  width: auto;
+  min-width: unset;
+  min-height: 24px;
+  line-height: 1;
+  border-radius: 4px;
+  margin-left: 0.5em;
+  cursor: pointer;
+}
+
+.attributes-box {
+  color: #222; /* or use var(--evermore-secondary-color) for a theme color */
+}
+
+.attr-label {
+  display: inline-block;
+  width: 90px;         /* Adjust as needed for your longest label */
+  text-align: right;
+  margin-right: 0.5em;
+}
+
+.attr-input {
+  margin-left: 1em;
+  margin-right: 0.2em;
+  width: 3em;
+}
+
+.persona-box {
+  color: #222;
+  margin-left: 2em;
+}
+
+.personas-box {
+  color: #000;
+}
+
+.kin-item {
+  font-size: 1.1em;
+  color: #555;
+  margin-bottom: 0.3em;
+  transition: color 0.2s, font-size 0.2s;
+}
+
+.kin-item.selected-kin {
+  font-size: 1.5em;
+  color: #111;
+  font-weight: bold;
+}

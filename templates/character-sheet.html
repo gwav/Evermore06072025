@@ -1,59 +1,75 @@
 <section class="evermore-sheet">
-    <header class="sheet-header">
-        <h1>{{actor.name}}</h1>
+    <header class="sheet-header" style="display: flex; flex-direction: column; align-items: flex-start;">
+        <h1 style="margin-bottom: 0.5em;">{{actor.name}}</h1>
+        <!-- Flex container for attributes and personas -->
+        <div class="top-row" style="display: flex; flex-direction: row; align-items: flex-start; width: 100%;">
+            <div class="attributes-box" style="border: 2px solid #888; border-radius: 8px; padding: 0.5em 1em; background: #f9f9f9; min-width: 270px;">
+                <h2 style="margin-top: 0;">Attributes</h2>
+                <ul style="list-style: none; padding: 0; margin: 0;">
+                    <li style="margin-bottom: 0.5em; display: flex; align-items: center;">
+                        <span class="attr-label"><strong>Strength:</strong></span>
+                        <input type="number" class="attr-input" name="system.attributes.strength.value" value="{{actor.system.attributes.strength.value}}" min="1" max="18" data-attr="strength" style="width: 3em; margin-right: 0.5em;" />
+                        <span class="attr-desc" style="flex: 1; font-size:0.9em; color:#666;">{{actor.system.attributes.strength.description}}</span>
+                        <button type="button" class="roll-attribute" data-attr="strength">Roll</button>
+                    </li>
+                    <li style="margin-bottom: 0.5em; display: flex; align-items: center;">
+                        <span class="attr-label"><strong>Dexterity:</strong></span>
+                        <input type="number" class="attr-input" name="system.attributes.dexterity.value" value="{{actor.system.attributes.dexterity.value}}" min="1" max="18" data-attr="dexterity" style="width: 3em; margin-right: 0.5em;" />
+                        <span class="attr-desc" style="flex: 1; font-size:0.9em; color:#666;">{{actor.system.attributes.dexterity.description}}</span>
+                        <button type="button" class="roll-attribute" data-attr="dexterity">Roll</button>
+                    </li>
+                    <li style="margin-bottom: 0.5em; display: flex; align-items: center;">
+                        <span class="attr-label"><strong>Constitution:</strong></span>
+                        <input type="number" class="attr-input" name="system.attributes.constitution.value" value="{{actor.system.attributes.constitution.value}}" min="1" max="18" data-attr="constitution" style="width: 3em; margin-right: 0.5em;" />
+                        <span class="attr-desc" style="flex: 1; font-size:0.9em; color:#666;">{{actor.system.attributes.constitution.description}}</span>
+                        <button type="button" class="roll-attribute" data-attr="constitution">Roll</button>
+                    </li>
+                    <li style="margin-bottom: 0.5em; display: flex; align-items: center;">
+                        <span class="attr-label"><strong>Intelligence:</strong></span>
+                        <input type="number" class="attr-input" name="system.attributes.intelligence.value" value="{{actor.system.attributes.intelligence.value}}" min="1" max="18" data-attr="intelligence" style="width: 3em; margin-right: 0.5em;" />
+                        <span class="attr-desc" style="flex: 1; font-size:0.9em; color:#666;">{{actor.system.attributes.intelligence.description}}</span>
+                        <button type="button" class="roll-attribute" data-attr="intelligence">Roll</button>
+                    </li>
+                    <li style="margin-bottom: 0.5em; display: flex; align-items: center;">
+                        <span class="attr-label"><strong>Wisdom:</strong></span>
+                        <input type="number" class="attr-input" name="system.attributes.wisdom.value" value="{{actor.system.attributes.wisdom.value}}" min="1" max="18" data-attr="wisdom" style="width: 3em; margin-right: 0.5em;" />
+                        <span class="attr-desc" style="flex: 1; font-size:0.9em; color:#666;">{{actor.system.attributes.wisdom.description}}</span>
+                        <button type="button" class="roll-attribute" data-attr="wisdom">Roll</button>
+                    </li>
+                    <li style="display: flex; align-items: center;">
+                        <span class="attr-label"><strong>Charisma:</strong></span>
+                        <input type="number" class="attr-input" name="system.attributes.charisma.value" value="{{actor.system.attributes.charisma.value}}" min="1" max="18" data-attr="charisma" style="width: 3em; margin-right: 0.5em;" />
+                        <span class="attr-desc" style="flex: 1; font-size:0.9em; color:#666;">{{actor.system.attributes.charisma.description}}</span>
+                        <button type="button" class="roll-attribute" data-attr="charisma">Roll</button>
+                    </li>
+                </ul>
+                <button type="button" id="roll-all-attributes" style="margin-top: 0.5em;">Roll All</button>
+            </div>
+            <!-- Personas Box Start -->
+            <div class="personas-box" style="border: 2px solid #888; border-radius: 8px; padding: 0.5em 1em; background: #f4f8fc; min-width: 270px; margin-left: 1em; color: #000;">
+                <h2 style="margin-top: 0;">Kin Selection</h2>
+                <form id="kin-selection">
+                    {{#each actor.system.persona.kin.options}}
+                    <div style="margin-bottom: 0.5em;">
+                        <input type="radio" name="system.persona.kin.value" value="{{key}}" id="kin-{{key}}" {{#if (eq actor.system.persona.kin.value key)}} checked{{/if}} />
+                        <label for="kin-{{key}}"><strong>{{name}}</strong></label>
+                    </div>
+                    {{/each}}
+                </form>
+            </div>
+
+            <!-- Personas Box End -->
+        </div>
     </header>
 
     <section class="sheet-body">
-        <div class="attributes">
-            <h2>Attributes</h2>
-            <ul>
-                <li>
-                    <strong>Strength:</strong>
-                    <input type="number" class="attr-input" name="system.attributes.strength.value" value="{{actor.system.attributes.strength.value}}" min="1" max="18" data-attr="strength" />
-                    <button type="button" class="roll-attribute" data-attr="strength">Roll</button>
-                    <span class="attr-desc">{{actor.system.attributes.strength.description}}</span>
-                </li>
-                <li>
-                    <strong>Dexterity:</strong>
-                    <input type="number" class="attr-input" name="system.attributes.dexterity.value" value="{{actor.system.attributes.dexterity.value}}" min="1" max="18" data-attr="dexterity" />
-                    <button type="button" class="roll-attribute" data-attr="dexterity">Roll</button>
-                    <span class="attr-desc">{{actor.system.attributes.dexterity.description}}</span>
-                </li>
-                <li>
-                    <strong>Constitution:</strong>
-                    <input type="number" class="attr-input" name="system.attributes.constitution.value" value="{{actor.system.attributes.constitution.value}}" min="1" max="18" data-attr="constitution" />
-                    <button type="button" class="roll-attribute" data-attr="constitution">Roll</button>
-                    <span class="attr-desc">{{actor.system.attributes.constitution.description}}</span>
-                </li>
-                <li>
-                    <strong>Intelligence:</strong>
-                    <input type="number" class="attr-input" name="system.attributes.intelligence.value" value="{{actor.system.attributes.intelligence.value}}" min="1" max="18" data-attr="intelligence" />
-                    <button type="button" class="roll-attribute" data-attr="intelligence">Roll</button>
-                    <span class="attr-desc">{{actor.system.attributes.intelligence.description}}</span>
-                </li>
-                <li>
-                    <strong>Wisdom:</strong>
-                    <input type="number" class="attr-input" name="system.attributes.wisdom.value" value="{{actor.system.attributes.wisdom.value}}" min="1" max="18" data-attr="wisdom" />
-                    <button type="button" class="roll-attribute" data-attr="wisdom">Roll</button>
-                    <span class="attr-desc">{{actor.system.attributes.wisdom.description}}</span>
-                </li>
-                <li>
-                    <strong>Charisma:</strong>
-                    <input type="number" class="attr-input" name="system.attributes.charisma.value" value="{{actor.system.attributes.charisma.value}}" min="1" max="18" data-attr="charisma" />
-                    <button type="button" class="roll-attribute" data-attr="charisma">Roll</button>
-                    <span class="attr-desc">{{actor.system.attributes.charisma.description}}</span>
-                </li>
-            </ul>
-            <button type="button" id="roll-all-attributes">Roll All</button>
-        </div>
-
         <div class="combat">
             <h2>Combat Stats</h2>
             <ul>
                 <li>
                     <strong>Hit Points:</strong>
-                    <input type="number" name="system.attributes.hp.value" value="{{actor.system.attributes.hp.value}}" min="0" max="{{actor.system.attributes.hp.max}}" />
-                    / {{actor.system.attributes.hp.max}}
+                    <input type="number" name="system.hp.value" value="{{actor.system.hp.value}}" min="0" max="{{actor.system.hp.max}}" />
+                    / {{actor.system.hp.max}}
                 </li>
             </ul>
         </div>

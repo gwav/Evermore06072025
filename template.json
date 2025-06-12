@@ -3,11 +3,11 @@
     "types": [ "character", "npc" ],
     "templates": {
       "base": {
+        "hp": {
+          "value": 10,
+          "max": 10
+        },
         "attributes": {
-          "hp": {
-            "value": 10,
-            "max": 10
-          },
           "strength": {
             "value": 8,
             "max": 18,
