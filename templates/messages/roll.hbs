@@ -1,0 +1,33 @@
+<div class="ldoa-roll-title">
+    <strong>{{labels.title}}</strong>
+</div>
+
+{{#expanded}}
+<div class="ldoa-roll-details">
+{{/expanded}}
+{{^expanded}}
+<div class="ldoa-roll-details ldoa-hidden">
+{{/expanded}}
+    <div class="ldoa-roll-column">
+        <div class="ldoa-roll-column-title">{{localize "ldoa.messages.titles.formula"}}</div>
+        <div class="ldoa-roll-column-content">{{formula}}</div>
+    </div>
+    <div class="ldoa-roll-column">
+        <div class="ldoa-roll-column-title">{{localize "ldoa.messages.titles.roll"}}</div>
+        <div class="ldoa-roll-column-content">{{result}}</div>
+    </div>
+</div>
+
+{{#tested}}
+  {{#success}}
+<div class="ldoa-roll-success">{{labels.result}}</div>
+  {{/success}}
+
+  {{^success}}
+<div class="ldoa-roll-failure">{{labels.result}}</div>
+  {{/success}}
+{{/tested}}
+
+{{#additional.show}}
+<p class="ldoa-dice-roll-additional">{{additional.message}}</p>
+{{/additional.show}}

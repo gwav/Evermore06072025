@@ -1,0 +1,8 @@
+{{#stressed}}
+  {{> "systems/lastdays/templates/messages/stressed.hbs"}}
+{{/stressed}}
+
+{{> "systems/lastdays/templates/messages/roll.hbs" roll}}
+<p class="ldoa-damage-details">
+    {{localize "ldoa.messages.blurbs.damageInflicted"}}: {{roll.result}}
+</p>

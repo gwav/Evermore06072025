@@ -1,0 +1,56 @@
+<form class="{{cssClass}} ldoa-character-sheet" data-id="{{actor.id}}" autocomplete="off">
+	<div class="ldoa-cs-container" data-actor="{{actor.id}}">
+		<div class="ldoa-cs-left-side">
+			<!-- Character Image -->
+			<div class="ldoa-cs-img">
+				<center>
+				    <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="96" width="96"/>
+				</center>
+				<div>
+					<center>
+						<i class="far fa-pause-circle ldoa-rest-icon" title="{{localize 'ldoa.controls.titles.shortRest'}}" data-actor="{{actor.id}}" data-type="short"></i>
+						<i class="fas fa-bed ldoa-rest-icon" title="{{localize 'ldoa.controls.titles.longRest'}}" data-actor="{{actor.id}}" data-type="long"></i>
+					</center>
+				</div>
+			</div>
+			<hr>
+
+			<!-- Attribute List -->
+			{{> "systems/lastdays/templates/partials/cs-attribute-list.hbs"}}
+		</div>
+
+		<div class="ldoa-cs-main-body">
+			<div class="ldoa-field">
+				<label class="ldoa-label" for="actor.name">{{localize "ldoa.fields.labels.name"}}</label>
+				<input type="text" name="name" value="{{actor.name}}" class="ldoa-input"/>
+			</div>
+
+            <div class="ldoa-stats-line-2">
+				<div class="ldoa-field">
+					<label class="ldoa-label" for="system.playerName">{{localize "ldoa.fields.labels.playerName"}}</label>
+					<input type="text" name="system.playerName" value="{{actor.system.playerName}}" class="ldoa-input"/>
+				</div>
+
+				<div class="ldoa-field">
+					<label class="ldoa-label" for="level">{{localize "ldoa.fields.labels.level"}}</label>
+					<input type="number" name="level" value="{{actor.system.level}}" class="ldoa-input ldoa-centered-input" readonly />
+				</div>
+
+				<div class="ldoa-field">
+					<label class="ldoa-label" for="system.stress">
+                        <i class="fas fa-dice-two ldoa-stress-roll-icon ldoa-action-icon" title="{{localize 'ldoa.fields.titles.rollDie'}}" data-actor="{{actor.id}}"></i>
+					    {{localize "ldoa.fields.labels.stressDie"}}
+					</label>
+					<select name="system.stress">
+						{{{selectOptions configuration.usageDieList selected=actor.system.stress localize=true }}}
+					</select>
+				</div>
+			</div>
+
+			<div class="ldoa-tab-container">
+				{{> "systems/lastdays/templates/partials/cs-tab-labels.hbs"}}
+				{{> "systems/lastdays/templates/partials/cs-tab-bodies.hbs"}}
+			</div>
+		</div>
+	</div>
+</form>

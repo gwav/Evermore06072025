@@ -1,0 +1,33 @@
+<form autocomplete="off" class="{{cssClass}}">
+    <hr>
+    <div class="ldoa-font-size-5">
+        <center>
+            <strong>{{attribute}}</strong>: {{score}}
+        </center>
+    </div>
+    <hr>
+
+    <div class="ldoa-grid ldoa-grid-3-col ldoa-grid-extended-gap">
+        <div class="ldoa-field">
+            <label class="ldoa-label">{{localize "ldoa.fields.labels.threat"}}</label>
+            <input class="ldoa-input" name="threat" type="number" value="{{threat}}">
+        </div>
+
+        <div class="ldoa-field">
+            <label class="ldoa-label">{{localize "ldoa.fields.labels.bonusPenalty"}}</label>
+            <input class="ldoa-input" name="adjustment" type="number" value="{{adjustment}}">
+        </div>
+
+        <div class="ldoa-field">
+            <label class="ldoa-label">{{localize "ldoa.fields.labels.rollType"}}</label>
+            <select name="type" class="ldoa-input ldoa-select">
+            {{#select type}}
+            {{#each configuration.rollTypes as |label value|}}
+                <option value="{{value}}">{{localize label}}</option>
+            {{/each}}
+            {{/select}}
+            </select>
+        </div>
+        <br>
+    </div>
+</form>

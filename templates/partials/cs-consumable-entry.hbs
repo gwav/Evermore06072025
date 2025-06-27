@@ -1,0 +1,17 @@
+<div class="ldoa-consumable-entry-name">
+	<span class="ldoa-item-name" data-item="{{_id}}">{{name}}</span>
+</div>
+<div class="ldoa-consumable-entry-quantity ldoa-text-truncated">
+	<center>{{system.quantity}}</center>
+</div>
+<div class="ldoa-consumable-entry-usage-die ldoa-text-truncated">
+	<center>{{usageDie system.usageDie}}</center>
+</div>
+<div class="ldoa-consumable-entry-actions">
+	<i class="fas fa-dice-two ldoa-usage-die-roll-icon ldoa-action-icon" title="{{localize 'ldoa.fields.titles.rollDie'}}" data-item="{{_id}}" data-die="usageDie" data-type="{{localize 'ldoa.data.descriptions.usageDie'}}"></i>
+	<i class="fas fa-undo-alt ldoa-reset-usage-die-icon ldoa-action-icon" title="{{localize "ldoa.fields.titles.resetConsumable"}}" data-item="{{_id}}"></i>
+	<i class="fas fa-plus ldoa-increase-quantity-icon ldoa-action-icon" title="{{localize "ldoa.fields.titles.incrementConsumable"}}" data-item="{{_id}}"></i>
+	<i class="fas fa-minus ldoa-decrease-quantity-icon ldoa-action-icon" title="{{localize "ldoa.fields.titles.decrementConsumable"}}" data-item="{{_id}}"></i>
+	<i class="fas fa-info-circle ldoa-info-icon" data-content="{{system.description}}"></i>
+	<i class="far fa-trash-alt ldoa-delete-item-icon ldoa-action-icon" title="{{localize "ldoa.fields.titles.deleteConsumable"}}" data-item="{{_id}}" data-type="{{type}}"></i>
+</div>

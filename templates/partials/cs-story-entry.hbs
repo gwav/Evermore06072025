@@ -1,0 +1,71 @@
+<div class="ldoa-story-entry-container">
+	<div class="ldoa-field">
+		<label class="ldoa-label">{{localize "ldoa.fields.labels.adventureName"}}</label>
+		<input name="system.stories.{{@key}}.title" type="text" value="{{title}}">
+	</div>
+
+{{#if improvements}}
+	<div class="ldoa-story-entry-improvements">
+	{{#if improvements.level}}
+		<div class="ldoa-field">
+			<label class="ldoa-label">{{localize "ldoa.fields.labels.level"}}</label>
+			<div>
+				{{localize improvements.level}}
+			</div>
+		</div>
+	{{/if}}
+
+	{{#if improvements.hitPoints}}
+		<div class="ldoa-field">
+			<label class="ldoa-label">{{localize "ldoa.fields.labels.hitPoints"}}</label>
+			<div>
+				+{{improvements.hitPoints}}
+			</div>
+		</div>
+	{{/if}}
+
+	{{#if improvements.boon.granted}}
+	    <div class="ldoa-field">
+	    	<label class="ldoa-label">{{localize "ldoa.fields.labels.boon"}}</label>
+	    	<select name="system.stories.{{@key}}.improvements.boon.choice">
+    	{{#each configuration.boonList}}
+            {{{selectBoonOption ../improvements.boon.choice}}}
+    	{{/each}}
+	    	</select>
+	    </div>
+	{{/if}}
+
+	{{#if improvements.attributes.granted}}
+	    {{#if improvements.attributes.first}}
+		    <div class="ldoa-field">
+		    	<label class="ldoa-label">{{localize "ldoa.fields.labels.attributeBonus"}}</label>
+		    	<select name="system.stories.{{@key}}.improvements.attributes.first.choice">
+	    	{{#each configuration.optionalAttributeListLong}}
+                {{{selectAttributeOption ../improvements.attributes.first.choice}}}
+	    	{{/each}}
+		    	</select>
+		    </div>
+	    {{/if}}
+
+	    {{#if improvements.attributes.second}}
+		    <div class="ldoa-field">
+		    	<label class="ldoa-label">{{localize "ldoa.fields.labels.attributeBonus"}}</label>
+		    	<select name="system.stories.{{@key}}.improvements.attributes.second.choice">
+	    	{{#each configuration.optionalAttributeListLong}}
+                {{{selectAttributeOption ../improvements.attributes.second.choice}}}
+	    	{{/each}}
+		    	</select>
+		    </div>
+	    {{/if}}
+	{{/if}}
+
+	{{#if improvements.stressDie}}
+	    <div>
+	    	<label class="ldoa-label">{{localize "ldoa.fields.labels.stressDieUpgrade"}}</label>
+	    	<div>1{{improvements.stressDie}}</div>
+	    </div>
+	{{/if}}
+	</div>
+{{/if}}
+</div>
+<hr>

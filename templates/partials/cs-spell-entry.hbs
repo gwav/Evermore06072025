@@ -1,0 +1,11 @@
+<div class="ldoa-spell-entry-name ldoa-text-truncated">
+	<span class="ldoa-item-name" data-item="{{_id}}">{{name}}</span>
+</div>
+<div class="ldoa-spell-state ldoa-text-truncated">
+	{{spellState system.state}}
+</div>
+<div class="ldoa-spell-entry-actions">
+	<i class="fas fa-hand-sparkles ldoa-cast-spell-icon ldoa-action-icon {{spellStateClass system.state}}" title="{{localize "ldoa.fields.titles.castSpell"}}" data-spell="{{_id}}"></i>
+	<i class="fas fa-undo-alt ldoa-reset-spell-state-icon ldoa-action-icon" title="{{localize "ldoa.fields.titles.resetSpell"}}" data-spell="{{_id}}"></i>
+	<i class="far fa-trash-alt ldoa-delete-item-icon ldoa-action-icon" title="{{localize "ldoa.fields.titles.deleteSpell"}}" data-item="{{_id}}" data-type="{{type}}"></i>
+</div>

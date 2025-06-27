@@ -1,0 +1,37 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <div class="ldoa-origin-sheet-body">
+    	<div class="ldoa-origin-main">
+    		<div class="ldoa-origin-container">
+    			<div>
+    				<img src="{{item.img}}" data-edit="img" title="{{item.name}}">
+    			</div>
+
+    			<div>
+				    <div class="ldoa-field">
+				    	<input class="ldoa-input" name="name" type="text" value="{{item.name}}" />
+				    </div>
+
+			        <div>
+			        	<div class="ldoa-backgrounds-header">
+			                <label class="ldoa-label">{{localize "ldoa.headers.backgrounds"}}</label>
+			    
+			                <div class="ldoa-backgrounds-header-icons">
+								<p class="ldoa-icons-list">
+									<i class="fas fa-plus ldoa-action-icon ldoa-new-background-icon" data-origin="{{item.id}}"></i>
+									<i class="fas fa-minus ldoa-action-icon ldoa-delete-background-icon ldoa-greyed-out" data-origin="{{item.id}}"></i>
+								</p>
+							</div>
+			        	</div>
+			        	<hr>
+
+						<div class="ldoa-backgrounds-list">
+							{{#each data.system.backgroundObjects as |background index|}}
+							    {{> "systems/lastdays/templates/partials/cs-background-entry.hbs" background}}
+							{{/each}}
+						</div>
+					</div>
+				</div>
+    		</div>
+		</div>
+    </div>
+</form>

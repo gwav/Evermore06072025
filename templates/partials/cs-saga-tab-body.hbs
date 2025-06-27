@@ -1,0 +1,9 @@
+<div class="ldoa-tab-body ldoa-saga-tab {{tabBodySelectionClass 'saga'}}">
+	<div class="ldoa-field">
+		<h2>{{localize "ldoa.fields.labels.stories"}}</h2>
+		<p class="ldoa-blurb">{{localize "ldoa.blurbs.stories"}}</p>
+    {{#each actor.system.stories}}
+        {{> "systems/lastdays/templates/partials/cs-story-entry.hbs"}}
+    {{/each}}
+	</div>
+</div>

@@ -1,0 +1,37 @@
+<form class="{{cssClass}}" autocomplete="off">
+    <div class="ldoa-equipment-body">
+    	<section>
+    		<img src="{{item.img}}" data-edit="img" title="{{item.name}}">
+    		<hr>
+
+			<div class="ldoa-field">
+				<label class="ldoa-label">{{localize "ldoa.fields.labels.rarity"}}</label>
+		    	<select name="system.rarity" class="ldoa-input ldoa-select">
+		    		{{{selectOptions configuration.itemRarityList selected=item.system.rarity localize=true }}}
+		    	</select>
+			</div>
+
+			<div class="ldoa-field">
+				<label class="ldoa-label">Cost (coins)</label>
+				<input name="system.cost" type="number" value="{{item.system.cost}}" class="ldoa-input" min="0" />
+			</div>
+
+			<div class="ldoa-field">
+				<label class="ldoa-label">Quantity</label>
+				<input name="system.quantity" type="number" value="{{item.system.quantity}}" class="ldoa-input" min="1" />
+			</div>
+    	</section>
+
+    	<section>
+		    <div class="ldoa-field">
+		    	<input class="ldoa-enlarged-input" name="name" type="text" value="{{item.name}}" />
+		    </div>
+		    <hr>
+
+			<div class="ldoa-field">
+				<label for="system.description" class="ldoa-label">{{localize "ldoa.fields.labels.description"}}</label>
+				{{editor item.system.description target="system.description" button=true owner=owner editable=editable}}
+			</div>
+    	</section>
+    </div>
+</form>

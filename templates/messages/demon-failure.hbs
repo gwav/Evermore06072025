@@ -1,0 +1,16 @@
+<p>
+    [{{actor}}] {{localize "ldoa.messages.blurbs.summons"}}: {{demon}}
+</p>
+
+{{> "systems/lastdays/templates/messages/roll.hbs" roll}}
+
+<p class="ldoa-summon-results">
+{{#fumble}}
+    {{localize "ldoa.messages.blurbs.summonFumble"}}
+{{/fumble}}
+
+{{^fumble}}
+    {{localize "ldoa.messages.blurbs.summonFailure"}}
+{{/fumble}}
+</p>
+

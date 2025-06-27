@@ -1,0 +1,11 @@
+<p>
+    {{localize "ldoa.messages.blurbs.rollsUsageDie"}}: {{item}}
+</p>
+
+{{> "systems/lastdays/templates/messages/roll.hbs" roll}}
+
+{{#downgraded}}
+<p class="ldoa-usage-die-feedback">
+    {{feedback}}
+</p>
+{{/downgraded}}

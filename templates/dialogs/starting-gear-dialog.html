@@ -1,0 +1,76 @@
+<div class="starting-gear-dialog">
+    <div class="gear-header">
+        <h2>Select Your Starting Gear</h2>
+        <div class="coins-info">
+            <div class="available-coins">
+                <strong>Available Coins:</strong> {{availableCoins}}
+            </div>
+            <div class="budget-display">
+                <span class="total-cost">{{totalCost}}</span> / <span class="remaining-coins">{{remainingCoins}}</span> coins remaining
+            </div>
+        </div>
+    </div>
+
+    <div class="gear-content">
+        <!-- Left side - Gear Categories -->
+        <div class="gear-categories">
+            {{#each gearCategories}}
+            <div class="gear-category" data-category="{{@key}}">
+                <div class="category-header">
+                    <h3 class="category-title">{{this.title}}</h3>
+                    <button type="button" class="roll-all-btn" data-category="{{@key}}">
+                        <i class="fas fa-dice"></i> Roll All
+                    </button>
+                </div>
+                <p class="category-description">Items cost {{this.costRange}} coins each. Roll to determine exact cost.</p>
+                
+                <div class="gear-items">
+                    {{#each this.items}}
+                    <div class="gear-item">
+                        <div class="item-info">
+                            <input type="checkbox" class="gear-item-checkbox" data-item="{{this}}" data-category="{{@../key}}" disabled>
+                            <label class="item-name">{{this}}</label>
+                        </div>
+                        <div class="item-quantity">
+                            <label class="quantity-label">Qty:</label>
+                            <input type="number" class="quantity-input" data-item="{{this}}" min="1" max="10" value="1" disabled>
+                        </div>
+                        <div class="item-actions">
+                            <button type="button" class="roll-cost-btn" data-category="{{@../key}}" data-item="{{this}}">
+                                Roll Cost
+                            </button>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+            {{/each}}
+        </div>
+
+        <!-- Right side - Selected Items Summary -->
+        <div class="gear-summary">
+            <h3>Selected Items</h3>
+            <div class="selected-items-list">
+                <div class="no-items">No items selected</div>
+            </div>
+            
+            <div class="summary-footer">
+                <button type="button" class="buy-items-btn" disabled>
+                    <i class="fas fa-shopping-cart"></i>
+                    Buy Selected Items
+                </button>
+                <div class="budget-warning" style="display: none;">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Over budget! Remove some items.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="gear-footer">
+        <p class="gear-instructions">
+            <strong>Instructions:</strong> Roll for item costs, then select the items you want to purchase. 
+            Your total cannot exceed your available coins.
+        </p>
+    </div>
+</div>
