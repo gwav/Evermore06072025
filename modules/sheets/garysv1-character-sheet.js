@@ -568,8 +568,8 @@ export default class Garysv1CharacterSheet extends ActorSheet {
         
         // Check if we're in Game Play mode or Creation Mode
         if (actor.system.creationMode) {
-            // CHARACTER CREATION roll - roll 1d8+6 and set both beginning and current values
-            const roll = new Roll("1d8 + 6");
+            // CHARACTER CREATION roll - roll 1d6 + 7 and set both beginning and current values
+            const roll = new Roll("1d6 + 7");
             await roll.evaluate();
             
             const newValue = parseInt(roll.total);  // Ensure it's an integer
@@ -1067,15 +1067,15 @@ export default class Garysv1CharacterSheet extends ActorSheet {
         
         console.log("🎲 Actor:", actor);
         console.log("🎲 Creation Mode:", actor.system.creationMode);
-        console.log("Rolling all attributes for character creation (1d8+6)");
+        console.log("Rolling all attributes for character creation (1d6 + 7)");
         
         const attributes = ["strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"];
         const results = [];
         const updateData = {};
         
-        // Roll each attribute with 1d8+6 and prepare update data
+        // Roll each attribute with 1d6 + 7 and prepare update data
         for (const attribute of attributes) {
-            const roll = new Roll("1d8 + 6");
+            const roll = new Roll("1d6 + 7");
             await roll.evaluate();
             
             const newValue = parseInt(roll.total);  // Ensure it's an integer
