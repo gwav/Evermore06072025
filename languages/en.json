@@ -407,9 +407,12 @@
         "intelligence": "Intelligence",
         "wisdom": "Wisdom",
         "charisma": "Charisma",
-        "effects": "Effects",
         "otherEffects": "Other Effects",
-        "special": "Special Effects"
+        "cost": "Cost",
+        "slotCost": "Slot Cost",
+        "itemType": "Item Type",
+        "specialEffects": "Special Effects"
+
       },
       "placeholders": {
         "specialEffects": "e.g., Advantage on Intimidation checks"
@@ -460,6 +463,14 @@
         "summonDemon": "Summon this demon.",
         "summonSpirit": "Summon this spirit."
       }
+    },
+    "itemTypes": {
+      "weapon": "Weapon",
+      "armor": "Armor",
+      "shield": "Shield",
+      "container": "Container",
+      "consumable": "Consumable",
+      "other": "Other"
     },
     "boons": {
       "fortressOfTheMind": {
