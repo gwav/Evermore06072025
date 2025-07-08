@@ -1,3 +1,38 @@
+export class GarySV1CharacterSheet extends ActorSheet {
+  /** @override */
+  static get defaultOptions() {
+    return mergeObject(super.defaultOptions, {
+      classes: ["ldoa", "sheet", "actor", "garysv1-character-sheet"],
+      template: "systems/lastdays/templates/garysv1-character-sheet.html",
+      width: 800,
+      height: 700,
+      tabs: [{ navSelector: ".garysv1-tab-navigation", contentSelector: ".garysv1-tab-content", initial: "overview" }]
+    });
+  }
+
+  /** @override */
+  activateListeners(html) {
+    super.activateListeners(html);
+
+    // 🧭 Equipment Tab: Browse Inventory Compendium
+    html.find(".garysv1-browse-inventory").click(() => {
+      const pack = game.packs.get("world.inventory");
+      if (pack) pack.render(true);
+      else ui.notifications.warn("Inventory compendium not found.");
+    });
+
+    // 🛠 Optional: Handle tab switching manually if needed
+    html.find(".garysv1-tab-label").click(ev => {
+      const tab = $(ev.currentTarget).data("tab");
+
+      html.find(".garysv1-tab-label").removeClass("garysv1-tab-active");
+      $(ev.currentTarget).addClass("garysv1-tab-active");
+
+      html.find(".garysv1-tab-panel").removeClass("garysv1-tab-active");
+      html.find(`.garysv1-tab-panel[data-tab="${tab}"]`).addClass("garysv1-tab-active");
+    });
+  }
+}
 import { takeLongRest, takeShortRest } from "../rests.js";
 import { handleRollAttributeDieEvent, calculateAttributeValues, calculateCharacterData } from "../shared.js";
 import { ldoaConfiguration } from "../configuration.js";
@@ -18,10 +53,12 @@ export default class Garysv1CharacterSheet extends ActorSheet {
     get template() {
         return "systems/lastdays/templates/sheets/garysv1-character-sheet.html";
     }
+    
 
     async getData() {
         let context = super.getData();
-        
+        context.tabSelected = this.actor.system.tabSelected || "overview";
+
         // Check for data corruption (warnings only)
         ['strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma'].forEach(attr => {
             const calculated = this.actor.system.calculated?.[attr];
@@ -33,7 +70,8 @@ export default class Garysv1CharacterSheet extends ActorSheet {
 
         // Add configuration data with comprehensive safety checks
         context.configuration = CONFIG.configuration || {};
-        
+        console.log("🧪 Item Types Check:", this.actor.items.map(i => ({ name: i.name, type: i.type })));
+
         // Ensure required configuration lists exist to prevent template errors
         if (!context.configuration || !context.configuration.usageDieList) {
             context.configuration = context.configuration || {};
@@ -192,13 +230,16 @@ export default class Garysv1CharacterSheet extends ActorSheet {
         }
 
         // Filter items by type
-        context.consumables = context.items.filter((item) => item.type === "consumable");
         context.demons      = context.items.filter((item) => item.type === "demon");
-        context.equipment   = context.items.filter((item) => item.type === "equipment");
         context.boons       = context.items.filter((item) => item.type === "boon");
         context.spells      = context.items.filter((item) => item.type === "spell");
         context.spirits     = context.items.filter((item) => item.type === "spirit");
         context.weapons     = context.items.filter((item) => item.type === "weapon");
+        context.equipment = context.items.filter(item =>["inventory", "equipment"].includes(item.type));
+
+        context.consumables = context.items.filter((item) => item.type === "consumable");
+        console.log("🧪 Equipment items:", context.equipment.map(i => i.name));
+
         
         // DEBUG: Log equipment items for template
         console.log(`🎒 EQUIPMENT DEBUG for character sheet:`);
@@ -206,6 +247,13 @@ export default class Garysv1CharacterSheet extends ActorSheet {
         console.log(`- Equipment items found: ${context.equipment.length}`);
         context.equipment.forEach((item, index) => {
             console.log(`  Equipment ${index + 1}: "${item.name}" (type: ${item.type}, quantity: ${item.system?.quantity || 'N/A'})`);
+        });
+        
+        // DEBUG: Log boons items for template
+        console.log(`⭐ BOONS DEBUG for character sheet:`);
+        console.log(`- Boons found: ${context.boons.length}`);
+        context.boons.forEach((item, index) => {
+            console.log(`  Boon ${index + 1}: "${item.name}" (type: ${item.type}, power: ${item.system?.power || 'N/A'})`);
         });
         
         // Calculate language slots after boons are available
@@ -430,7 +478,18 @@ export default class Garysv1CharacterSheet extends ActorSheet {
         html.find('.garysv1-mode-button').click(this._onModeClicked.bind(this));
 
         // Tab switching
-        html.find('.garysv1-tab-label').click(this._onGarysv1TabLabelClicked.bind(this));
+        html.find(".garysv1-tab-label").click(ev => {
+            const tab = $(ev.currentTarget).data("tab");
+
+            // Save selected tab to actor system data
+            this.actor.update({ "system.tabSelected": tab });
+
+            html.find(".garysv1-tab-label").removeClass("garysv1-tab-active");
+            $(ev.currentTarget).addClass("garysv1-tab-active");
+
+            html.find(".garysv1-tab-panel").removeClass("garysv1-tab-active");
+            html.find(`.garysv1-tab-panel[data-tab="${tab}"]`).addClass("garysv1-tab-active");
+        });
 
         // Rest controls
         html.find('.ldoa-rest-icon').click(this._onRestClicked.bind(this));
@@ -446,13 +505,40 @@ export default class Garysv1CharacterSheet extends ActorSheet {
 
         // Item management
         html.find('.ldoa-delete-item-icon').click(this._onDeleteItemClicked.bind(this));
-        html.find('.ldoa-item-name').click(this._onItemNameClicked.bind(this));
-        
+        html.find(".ldoa-item-name").click(ev => {
+            const itemId = ev.currentTarget.dataset.itemId;
+            const item = this.actor.items.get(itemId);
+            if (item) {
+                item.sheet.render(true);
+            } else {
+                console.warn("Item not found on actor:", itemId);
+            }
+        });
+
+
         // Language selection
         html.find('[data-action="select-languages"]').click(this._onLanguageSelectionClicked.bind(this));
 
         // Gear selection button
         html.find('.garysv1-gear-button.garysv1-gear-enabled').click(this._onGearSelectionClicked.bind(this));
+        html.find(".garysv1-browse-inventory").click(() => {
+            const pack = game.packs.get("world.inventory");
+            context.inventory = context.items.filter(item => item.type === "equipment");
+
+            if (pack) pack.render(true);
+            else ui.notifications.warn("Inventory compendium not found.");
+        });
+
+        html.find(".garysv1-tab-label").click(ev => {
+            const tab = $(ev.currentTarget).data("tab");
+
+            html.find(".garysv1-tab-label").removeClass("garysv1-tab-active");
+            $(ev.currentTarget).addClass("garysv1-tab-active");
+
+            html.find(".garysv1-tab-panel").removeClass("garysv1-tab-active");
+            html.find(`.garysv1-tab-panel[data-tab="${tab}"]`).addClass("garysv1-tab-active");
+        });
+
         
         // Handle kin radio button changes to prevent flicker
         const kinRadios = html.find('.garysv1-kin-radio');
