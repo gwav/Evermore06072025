@@ -1,19 +1,13 @@
 <div class="garysv1-equipment-content">
-    <div class="garysv1-section-header">
-        <h3>{{localize "ldoa.headers.equipment"}}</h3>
+    
+
+    <!-- Coins Inline Display -->
+    <div class="garysv1-coins-inline">
+        <label><strong>Coins:</strong></label>
+        <input type="text" name="system.coins.first" value="{{actor.system.coins.first}}" class="garysv1-input garysv1-coin-inline" />
+        <span class="garysv1-coin-label">coins</span>
     </div>
 
-    <!-- Wealth Section -->
-    <div class="garysv1-wealth-section">
-        <h4>{{localize "ldoa.headers.wealth"}}</h4>
-        <div class="garysv1-coins-container">
-            <input type="text" name="system.coins.first" value="{{actor.system.coins.first}}" class="garysv1-input garysv1-coin-input" placeholder="1st" />
-            <input type="text" name="system.coins.second" value="{{actor.system.coins.second}}" class="garysv1-input garysv1-coin-input" placeholder="2nd" />
-            <input type="text" name="system.coins.third" value="{{actor.system.coins.third}}" class="garysv1-input garysv1-coin-input" placeholder="3rd" />
-            <input type="text" name="system.coins.fourth" value="{{actor.system.coins.fourth}}" class="garysv1-input garysv1-coin-input" placeholder="4th" />
-            <input type="text" name="system.coins.fifth" value="{{actor.system.coins.fifth}}" class="garysv1-input garysv1-coin-input" placeholder="5th" />
-        </div>
-    </div>
 
     <!-- Weapons Section -->
     <div class="garysv1-weapons-section">
@@ -21,23 +15,28 @@
         <div class="garysv1-items-list">
             {{#each weapons as |weapon id|}}
             <div class="garysv1-item-row">
-                <span class="ldoa-item-name" data-item="{{_id}}">{{name}}</span>
+                <span class="ldoa-item-name" data-item-id="{{item._id}}">{{item.name}}</span>
+
                 <span class="garysv1-item-damage">{{system.damage}}</span>
-                <i class="far fa-trash-alt ldoa-delete-item-icon ldoa-action-icon" data-item="{{_id}}" data-type="{{type}}" title="{{localize 'ldoa.fields.titles.deleteWeapon'}}"></i>
+                <i class="far fa-trash-alt ldoa-delete-item-icon ldoa-action-icon" data-item="{{item._id}}" data-type="{{type}}" title="{{localize 'ldoa.fields.titles.deleteWeapon'}}"></i>
             </div>
             {{/each}}
         </div>
     </div>
 
     <!-- Equipment Section -->
+    <p>Equipment count: {{equipment.length}}</p>
+
     <div class="garysv1-equipment-section">
         <h4>{{localize "ldoa.headers.equipment"}}</h4>
         <div class="garysv1-items-list">
+            <p>Total items: {{actor.items.length}}</p>
             {{#each equipment as |item id|}}
             <div class="garysv1-item-row">
-                <span class="ldoa-item-name" data-item="{{_id}}">{{name}}</span>
+                <span class="ldoa-item-name" data-item-id="{{item._id}}">{{item.name}}</span>
+
                 <span class="garysv1-item-quantity">{{system.quantity}}</span>
-                <i class="far fa-trash-alt ldoa-delete-item-icon ldoa-action-icon" data-item="{{_id}}" data-type="{{type}}" title="{{localize 'ldoa.fields.titles.deleteEquipment'}}"></i>
+                <i class="far fa-trash-alt ldoa-delete-item-icon ldoa-action-icon" data-item="{{item._id}}" data-type="{{type}}" title="{{localize 'ldoa.fields.titles.deleteEquipment'}}"></i>
             </div>
             {{/each}}
         </div>
@@ -49,9 +48,10 @@
         <div class="garysv1-items-list">
             {{#each consumables as |item id|}}
             <div class="garysv1-item-row">
-                <span class="ldoa-item-name" data-item="{{_id}}">{{name}}</span>
+                <span class="ldoa-item-name" data-item-id="{{item._id}}">{{item.name}}</span>
+
                 <span class="garysv1-item-quantity">{{system.quantity}}</span>
-                <i class="far fa-trash-alt ldoa-delete-item-icon ldoa-action-icon" data-item="{{_id}}" data-type="{{type}}" title="{{localize 'ldoa.fields.titles.deleteConsumable'}}"></i>
+                <i class="far fa-trash-alt ldoa-delete-item-icon ldoa-action-icon" data-item="{{item._id}}" data-type="{{type}}" title="{{localize 'ldoa.fields.titles.deleteConsumable'}}"></i>
             </div>
             {{/each}}
         </div>

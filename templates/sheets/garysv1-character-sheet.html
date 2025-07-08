@@ -227,34 +227,72 @@
 
                 <!-- Tab Navigation -->
                 <div class="garysv1-tab-navigation">
-                    <div class="garysv1-tab-label garysv1-tab-active" data-actor="{{actor.id}}" data-tab="overview">
-                        <span>{{localize "ldoa.tabs.labels.overview"}}</span>
-                    </div>
-                    <div class="garysv1-tab-label" data-actor="{{actor.id}}" data-tab="equipment">
-                        <span>{{localize "ldoa.tabs.labels.equipment"}}</span>
-                    </div>
-                    <div class="garysv1-tab-label" data-actor="{{actor.id}}" data-tab="magic">
-                        <span>{{localize "ldoa.tabs.labels.magic"}}</span>
-                    </div>
-                    <div class="garysv1-tab-label" data-actor="{{actor.id}}" data-tab="boons">
-                        <span>{{localize "ldoa.tabs.labels.boons"}}</span>
-                    </div>
-                    <div class="garysv1-tab-label" data-actor="{{actor.id}}" data-tab="languages">
-                        <span>{{localize "ldoa.tabs.labels.languages"}}</span>
-                    </div>
-                    <div class="garysv1-tab-label" data-actor="{{actor.id}}" data-tab="saga">
-                        <span>{{localize "ldoa.tabs.labels.saga"}}</span>
-                    </div>
+                <!-- Overview Tab Label -->
+                <div class="garysv1-tab-label {{#if (eq tabSelected "overview")}}garysv1-tab-active{{/if}}" data-actor="{{actor.id}}" data-tab="overview">
+                    <span>{{localize "ldoa.tabs.labels.overview"}}</span>
+                </div>
+
+                <!-- Equipment Tab Label -->
+                <div class="garysv1-tab-label {{#if (eq tabSelected "equipment")}}garysv1-tab-active{{/if}}" data-actor="{{actor.id}}" data-tab="equipment">
+                    <span>{{localize "ldoa.tabs.labels.equipment"}}</span>
+                </div>
+
+                <!-- Magic Tab Label -->
+                <div class="garysv1-tab-label {{#if (eq tabSelected "magic")}}garysv1-tab-active{{/if}}" data-actor="{{actor.id}}" data-tab="magic">
+                    <span>{{localize "ldoa.tabs.labels.magic"}}</span>
+                </div>
+
+                <!-- Boons Tab Label -->
+                <div class="garysv1-tab-label {{#if (eq tabSelected "boons")}}garysv1-tab-active{{/if}}" data-actor="{{actor.id}}" data-tab="boons">
+                    <span>{{localize "ldoa.tabs.labels.boons"}}</span>
+                </div>
+
+                <!-- Languages Tab Label -->
+                <div class="garysv1-tab-label {{#if (eq tabSelected "languages")}}garysv1-tab-active{{/if}}" data-actor="{{actor.id}}" data-tab="languages">
+                    <span>{{localize "ldoa.tabs.labels.languages"}}</span>
+                </div>
+
+                <!-- Saga Tab Label -->
+                <div class="garysv1-tab-label {{#if (eq tabSelected "saga")}}garysv1-tab-active{{/if}}" data-actor="{{actor.id}}" data-tab="saga">
+                    <span>{{localize "ldoa.tabs.labels.saga"}}</span>
+                </div>
                 </div>
 
                 <!-- Tab Content -->
                 <div class="garysv1-tab-content">
-                    <!-- Overview Tab -->
-                    <div class="garysv1-tab-panel garysv1-tab-active" data-tab="overview">
-                        <!-- Attributes Section -->
-                        <div class="garysv1-attributes-full">
-                            {{> "systems/lastdays/templates/partials/garysv1-attribute-list.hbs"}}
-                        </div>
+                <!-- Overview Tab Panel -->
+                <div class="garysv1-tab-panel {{#if (eq tabSelected "overview")}}garysv1-tab-active{{/if}}" data-tab="overview">
+                    <div class="garysv1-attributes-full">
+                    {{> "systems/lastdays/templates/partials/garysv1-attribute-list.hbs"}}
+                    </div>
+                </div>
+
+                <!-- Equipment Tab Panel -->
+                <div class="garysv1-tab-panel {{#if (eq tabSelected "equipment")}}garysv1-tab-active{{/if}}" data-tab="equipment">
+                    {{> "systems/lastdays/templates/partials/garysv1-equipment-tab.hbs"}}
+                </div>
+
+                <!-- Magic Tab Panel -->
+                <div class="garysv1-tab-panel {{#if (eq tabSelected "magic")}}garysv1-tab-active{{/if}}" data-tab="magic">
+                    {{> "systems/lastdays/templates/partials/garysv1-magic-tab.hbs"}}
+                </div>
+
+                <!-- Boons Tab Panel -->
+                <div class="garysv1-tab-panel {{#if (eq tabSelected "boons")}}garysv1-tab-active{{/if}}" data-tab="boons">
+                    {{> "systems/lastdays/templates/partials/garysv1-boons-tab.hbs"}}
+                </div>
+
+                <!-- Languages Tab Panel -->
+                <div class="garysv1-tab-panel {{#if (eq tabSelected "languages")}}garysv1-tab-active{{/if}}" data-tab="languages">
+                    {{> "systems/lastdays/templates/partials/garysv1-languages-tab.hbs"}}
+                </div>
+
+                <!-- Saga Tab Panel -->
+                <div class="garysv1-tab-panel {{#if (eq tabSelected "saga")}}garysv1-tab-active{{/if}}" data-tab="saga">
+                    {{> "systems/lastdays/templates/partials/garysv1-saga-tab.hbs"}}
+                </div>
+            </div>
+
 
                         <!-- Languages and Persona Row -->
                         <div class="garysv1-summary-row">
@@ -334,11 +372,6 @@
                                 </div>
                             </div>
                         </div> <!-- Close garysv1-summary-row -->
-                    </div>
-
-                    <!-- Equipment Tab -->
-                    <div class="garysv1-tab-panel" data-tab="equipment">
-                        {{> "systems/lastdays/templates/partials/garysv1-equipment-tab.hbs"}}
                     </div>
 
                     <!-- Magic Tab -->
