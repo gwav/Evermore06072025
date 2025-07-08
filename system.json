@@ -1,28 +1,62 @@
 {
-  "id": "evermore",
-  "title": "Evermore RPG System",
-  "description": "A custom RPG system for Foundry VTT.",
-  "version": "1.0.0",
-  "compatibility": {
-    "minimum": "13",
-    "verified": "13"
-  },
-  "author": "Brian Scott and Gary Allgeier",
-  "esmodules": [ "scripts/main.js" ],
-  "styles": [ "styles/style.css" ],
-  "packs": [],
-  "languages": [
-    {
-      "lang": "en",
-      "name": "English",
-      "path": "languages/en.json"
-    }
-  ],
-  "initiative": "dexterity",
-  "gridDistance": 5,
-  "gridUnits": "ft",
-  "primaryTokenAttribute": "hp",    
-  "manifest": "https://github.com/gwav/Evermore06072025/raw/main/system.json",
-  "download": "https://github.com/gwav/Evermore06072025/archive/main.zip",
-  "license": "LICENSE.txt"
+    "id": "lastdays",
+    "title": "Last Days of Atlantis",
+    "description": "System support for the Last Days of Atlantis RPG.",
+    "authors": [
+        {
+        "name": "Gary Allgeier and Brian Scott"
+        }
+    ],
+    "version": "1.0.0",
+    "compatibility": {
+        "minimum": 13,
+        "verified": "13"
+    },
+    "itemTypes": [
+        "weapon",
+        "armor",
+        "shield",
+        "container",
+        "consumable",
+        "inventory",
+        "other"
+    ],
+    "esmodules": [ "lastdays.js" ],
+    "styles": [ "lastdays.css" ],
+    "languages": [
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "languages/en.json"
+        },
+        {
+            "lang": "es",
+            "name": "Spanish",
+            "path": "languages/es.json"
+        },
+        {
+            "lang": "fr",
+            "name": "Français",
+            "path": "languages/fr.json"
+        },
+        {
+            "lang": "ru",
+            "name": "Russian",
+            "path": "languages/ru.json"
+        }
+    ],
+    "packs": [
+        {
+            "name": "boons",
+            "label": "Boons",
+            "path": "packs/boons.db",
+            "type": "Item"
+        }
+    ],
+    "relationships": {
+        "systems": [],
+        "requires": []
+    },
+    "manifest": "https://raw.githubusercontent.com/gwav/LDoA/refs/heads/main/system.json",
+    "download": "https://github.com/gwav/LDoA/blob/main/archive/v1.ZIP"
 }
