@@ -37,7 +37,7 @@ async function preloadHandlebarsTemplates() {
                    "systems/lastdays/templates/messages/spirit-success.hbs",
                    "systems/lastdays/templates/messages/usage-die-roll.hbs",
                    "systems/lastdays/templates/partials/cs-attribute-list.hbs",
-                   "systems/lastdays/templates/partials/garysv1-attribute-list.hbs",
+                   "systems/lastdays/templates/partials/garysv1-overview-tab.hbs",
                    "systems/lastdays/templates/partials/cs-background-entry.hbs",
                    "systems/lastdays/templates/partials/cs-background-tab-body.hbs",
                    "systems/lastdays/templates/partials/cs-backgrounds-classic.hbs",
@@ -111,7 +111,7 @@ Hooks.once("init", function() {
     Items.registerSheet("lastdays", WeaponSheet, {types: ["weapon"]});
 
     Actors.unregisterSheet("core", ActorSheet);
-    Actors.registerSheet("lastdays", CharacterSheet, {makeDefault: false, types: ["character"]});
+    //Actors.registerSheet("lastdays", CharacterSheet, {makeDefault: false, types: ["character"]});
     Actors.registerSheet("lastdays", Garysv1CharacterSheet, {makeDefault: true, types: ["character"]});
     Actors.registerSheet("lastdays", CreatureSheet, {makeDefault: true, types: ["creature"]});
     // Actors.registerSheet("bh2e", BH2eCreatureSheet, {makeDefault: true, types: ["creature"]});

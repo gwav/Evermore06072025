@@ -293,7 +293,8 @@
             "rarity": "common",
             "armorValue": 0,
             "cost": 0,
-            "quantity": 1
+            "quantity": 1,
+            "notes": ""
         },
         "boon": {
             "description": "",
