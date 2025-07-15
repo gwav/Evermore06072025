@@ -1,400 +1,431 @@
 <form class="{{cssClass}} ldoa-character-sheet garysv1-character-sheet" data-id="{{actor.id}}" autocomplete="off">
-    <!-- Fixed Header Section -->
-    <div class="garysv1-header">
-        <div class="garysv1-character-name">
-            <input type="text" name="name" value="{{actor.name}}" class="garysv1-name-input"/>
-        </div>
-        <div class="garysv1-player-name">
-            <label class="garysv1-player-label">{{localize "ldoa.fields.labels.playerName"}}:</label>
-            <input type="text" name="system.playerName" value="{{actor.system.playerName}}" class="garysv1-player-input"/>
-        </div>
-    </div>
+	<!-- Fixed Header Section -->
+	<div class="garysv1-header">
+		<div class="garysv1-character-name">
+			<input type="text" name="name" value="{{actor.name}}" class="garysv1-name-input"/>
+		</div>
+		<div class="garysv1-player-name">
+			<label class="garysv1-player-label">{{localize "ldoa.fields.labels.playerName"}}:</label>
+			<input type="text" name="system.playerName" value="{{actor.system.playerName}}" class="garysv1-player-input"/>
+		</div>
+	</div>
 
-    <!-- Main Content Area -->
-    <div class="garysv1-main-content" data-actor="{{actor.id}}">
-        <!-- Mode Selector -->
-        <div class="garysv1-mode-selector">
-            <button type="button" class="garysv1-mode-button {{#if actor.system.creationMode}}garysv1-mode-active{{/if}}" 
-                    data-mode="creation">Character Creation</button>
-            
-            <!-- Character Image - Centered -->
-            <div class="garysv1-character-image-center">
-                <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" class="garysv1-portrait"/>
-            </div>
-            
-            <button type="button" class="garysv1-mode-button {{#unless actor.system.creationMode}}garysv1-mode-active{{/unless}}" 
-                    data-mode="gameplay">Game Play</button>
-        </div>
+	<!-- Main Content Area -->
+	<div class="garysv1-main-content" data-actor="{{actor.id}}">
+		<!-- Mode Selector -->
+		<div class="garysv1-mode-selector">
+				<button type="button" class="garysv1-mode-button {{#if actor.system.creationMode}}garysv1-mode-active{{/if}}" 
+								data-mode="creation">Character Creation</button>
+				
+				<!-- Character Image - Centered -->
+				<div class="garysv1-character-image-center">
+					<img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" class="garysv1-portrait"/>
+				</div>
+				
+				<button type="button" class="garysv1-mode-button {{#unless actor.system.creationMode}}garysv1-mode-active{{/unless}}" 
+								data-mode="gameplay">Game Play</button>
+		</div>
 
-        <!-- Character Creation Mode -->
-        <div class="garysv1-creation-mode {{#unless actor.system.creationMode}}garysv1-hidden{{/unless}}">
-            <div class="garysv1-creation-content">
-                <!-- Attributes and Persona: Kin Section -->
-                <div class="garysv1-attributes-kin-container">
-                    <!-- Attributes Section -->
-                    <div class="garysv1-attributes">
-                        {{> "systems/lastdays/templates/partials/garysv1-attribute-list.hbs"}}
-                    </div>
+		<!-- Character Creation Mode -->
+		<div class="garysv1-creation-mode {{#unless actor.system.creationMode}}garysv1-hidden{{/unless}}">
+			<div class="garysv1-creation-content">
+				<!-- Attributes and Persona: Kin Section -->
+				<div class="garysv1-attributes-kin-container">
+					<!-- Attributes Section -->
+					<div class="garysv1-attributes">
+							{{> "systems/lastdays/templates/partials/garysv1-overview-tab.hbs"}}
+					</div>
 
-                    <!-- Persona: Kin Section -->
-                    <div class="garysv1-kin">
-                        <h3 class="garysv1-kin-title">Persona: Kin</h3>
-                        <div class="garysv1-kin-top-section">
-                            <div class="garysv1-kin-choices">
-                                <label class="garysv1-kin-option">
-                                    <input type="radio" name="system.kin" value="blooded" {{#eq actor.system.kin "blooded"}}checked{{/eq}} class="garysv1-kin-radio"/>
-                                    <span class="garysv1-kin-label">Blooded</span>
-                                </label>
-                                <label class="garysv1-kin-option">
-                                    <input type="radio" name="system.kin" value="human" {{#if actor.system.kin}}{{#eq actor.system.kin "human"}}checked{{/eq}}{{else}}checked{{/if}} class="garysv1-kin-radio"/>
-                                    <span class="garysv1-kin-label">Human</span>
-                                </label>
-                                <label class="garysv1-kin-option">
-                                    <input type="radio" name="system.kin" value="manikin" {{#eq actor.system.kin "manikin"}}checked{{/eq}} class="garysv1-kin-radio"/>
-                                    <span class="garysv1-kin-label">Manikin</span>
-                                </label>
-                                <label class="garysv1-kin-option">
-                                    <input type="radio" name="system.kin" value="trickster" {{#eq actor.system.kin "trickster"}}checked{{/eq}} class="garysv1-kin-radio"/>
-                                    <span class="garysv1-kin-label">Trickster</span>
-                                </label>
-                            </div>
-                            <div class="garysv1-kin-traits">
-                                <h4 class="garysv1-kin-traits-title">Traits</h4>
-                                <div class="garysv1-kin-traits-content">
-                                    {{{kinTraits}}}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="garysv1-kin-description">
-                            <div class="garysv1-kin-desc-content">
-                                {{{kinDescription}}}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+					<!-- Persona: Kin Section -->
+					<div class="garysv1-kin">
+						<h3 class="garysv1-kin-title">Persona: Kin</h3>
+						<div class="garysv1-kin-top-section">
+							<div class="garysv1-kin-choices">
+								<label class="garysv1-kin-option">
+									<input type="radio" name="system.kin" value="blooded" {{#eq actor.system.kin "blooded"}}checked{{/eq}} class="garysv1-kin-radio"/>
+									<span class="garysv1-kin-label">Blooded</span>
+								</label>
+								<label class="garysv1-kin-option">
+									<input type="radio" name="system.kin" value="human" {{#if actor.system.kin}}{{#eq actor.system.kin "human"}}checked{{/eq}}{{else}}checked{{/if}} class="garysv1-kin-radio"/>
+									<span class="garysv1-kin-label">Human</span>
+								</label>
+								<label class="garysv1-kin-option">
+									<input type="radio" name="system.kin" value="manikin" {{#eq actor.system.kin "manikin"}}checked{{/eq}} class="garysv1-kin-radio"/>
+									<span class="garysv1-kin-label">Manikin</span>
+								</label>
+								<label class="garysv1-kin-option">
+									<input type="radio" name="system.kin" value="trickster" {{#eq actor.system.kin "trickster"}}checked{{/eq}} class="garysv1-kin-radio"/>
+									<span class="garysv1-kin-label">Trickster</span>
+								</label>
+							</div>
+							<div class="garysv1-kin-traits">
+								<h4 class="garysv1-kin-traits-title">Traits</h4>
+								<div class="garysv1-kin-traits-content">
+										{{{kinTraits}}}
+								</div>
+							</div>
+						</div>
+						<div class="garysv1-kin-description">
+								<div class="garysv1-kin-desc-content">
+										{{{kinDescription}}}
+								</div>
+						</div>
+					</div>
+				</div>
 
-                <!-- Gear Selection Button -->
-                <div class="garysv1-gear-selection">
-                    <div class="garysv1-gear-button-container">
-                        {{#if (and actor.system.background actor.system.origin)}}
-                        <button type="button" class="garysv1-gear-button garysv1-gear-enabled" data-actor="{{actor.id}}">
-                            <i class="fas fa-shopping-bag"></i>
-                            Select Starting Gear
-                        </button>
-                        <p class="garysv1-gear-info">Choose your initial equipment based on your {{actor.system.background}} background and {{actor.system.origin}} origin.</p>
-                        {{else}}
-                        <button type="button" class="garysv1-gear-button garysv1-gear-disabled" disabled>
-                            <i class="fas fa-lock"></i>
-                            Select Starting Gear
-                        </button>
-                        <p class="garysv1-gear-disabled-info">Please finish your character first - select your Persona Background and Origin.</p>
-                        {{/if}}
-                    </div>
-                </div>
-
-
-
-                <!-- Persona Backgrounds Section -->
-                <div class="garysv1-backgrounds">
-                    <h3 class="garysv1-backgrounds-title">Persona Backgrounds</h3>
-                    <div class="garysv1-backgrounds-content">
-                        {{> "systems/lastdays/templates/partials/cs-backgrounds-new.hbs"}}
-                    </div>
-                </div>
-
-                <!-- Origins Section -->
-                <div class="garysv1-origins">
-                    <h3 class="garysv1-origins-title">Origins</h3>
-                    <p class="garysv1-origins-intro">You were born...</p>
-                    
-                    <div class="garysv1-origins-content">
-                        <!-- Origins Type Selection -->
-                        <div class="garysv1-origins-types">
-                            <label class="garysv1-origin-type-option">
-                                <input type="radio" name="system.originType" value="barbarian" {{#eq actor.system.originType "barbarian"}}checked{{/eq}} class="garysv1-origin-type-radio"/>
-                                <span class="garysv1-origin-type-label">Barbarian</span>
-                                <span class="garysv1-origin-type-coins">25 coins</span>
-                            </label>
-                            <label class="garysv1-origin-type-option">
-                                <input type="radio" name="system.originType" value="civilised" {{#eq actor.system.originType "civilised"}}checked{{/eq}} class="garysv1-origin-type-radio"/>
-                                <span class="garysv1-origin-type-label">Civilised</span>
-                                <span class="garysv1-origin-type-coins">50 coins</span>
-                            </label>
-                            <label class="garysv1-origin-type-option">
-                                <input type="radio" name="system.originType" value="decadent" {{#eq actor.system.originType "decadent"}}checked{{/eq}} class="garysv1-origin-type-radio"/>
-                                <span class="garysv1-origin-type-label">Decadent</span>
-                                <span class="garysv1-origin-type-coins">100 coins</span>
-                            </label>
-                        </div>
-
-                        <!-- Origins List -->
-                        <div class="garysv1-origins-list">
-                            <!-- Barbarian Origins -->
-                            <div class="garysv1-origin-group {{#unless (eq actor.system.originType "barbarian")}}garysv1-hidden{{/unless}}" data-origin-type="barbarian">
-                                <div class="garysv1-origin-options">
-                                    {{#each this.barbarianOrigins}}
-                                    <label class="garysv1-origin-option">
-                                        <input type="radio" name="system.origin" value="{{this.value}}" {{#if this.selected}}checked{{/if}} class="garysv1-origin-radio"/>
-                                        <span class="garysv1-origin-number">{{math @index "+" 1}}.</span>
-                                        <span class="garysv1-origin-text">{{this.text}}</span>
-                                    </label>
-                                    {{/each}}
-                                </div>
-                            </div>
-
-                            <!-- Civilised Origins -->
-                            <div class="garysv1-origin-group {{#unless (eq actor.system.originType "civilised")}}garysv1-hidden{{/unless}}" data-origin-type="civilised">
-                                <div class="garysv1-origin-options">
-                                    {{#each this.civilisedOrigins}}
-                                    <label class="garysv1-origin-option">
-                                        <input type="radio" name="system.origin" value="{{this.value}}" {{#if this.selected}}checked{{/if}} class="garysv1-origin-radio"/>
-                                        <span class="garysv1-origin-number">{{math @index "+" 1}}.</span>
-                                        <span class="garysv1-origin-text">{{this.text}}</span>
-                                    </label>
-                                    {{/each}}
-                                </div>
-                            </div>
-
-                            <!-- Decadent Origins -->
-                            <div class="garysv1-origin-group {{#unless (eq actor.system.originType "decadent")}}garysv1-hidden{{/unless}}" data-origin-type="decadent">
-                                <div class="garysv1-origin-options">
-                                    {{#each this.decadentOrigins}}
-                                    <label class="garysv1-origin-option">
-                                        <input type="radio" name="system.origin" value="{{this.value}}" {{#if this.selected}}checked{{/if}} class="garysv1-origin-radio"/>
-                                        <span class="garysv1-origin-number">{{math @index "+" 1}}.</span>
-                                        <span class="garysv1-origin-text">{{this.text}}</span>
-                                    </label>
-                                    {{/each}}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Game Play Mode -->
-        <div class="garysv1-gameplay-mode {{#if actor.system.creationMode}}garysv1-hidden{{/if}}">
-            <div class="garysv1-gameplay-content">
-                <!-- Fixed Header Stats -->
-                <div class="garysv1-game-stats">
-                    <div class="garysv1-rest-controls">
-                        <i class="far fa-pause-circle ldoa-rest-icon" title="{{localize 'ldoa.controls.titles.shortRest'}}" data-actor="{{actor.id}}" data-type="short"></i>
-                        <i class="fas fa-bed ldoa-rest-icon" title="{{localize 'ldoa.controls.titles.longRest'}}" data-actor="{{actor.id}}" data-type="long"></i>
-                    </div>
-
-                    <div class="garysv1-armor-field">
-                        <label class="garysv1-label">Armor</label>
-                        <div class="garysv1-armor-display">
-                            <select name="system.selectedArmor" class="garysv1-select garysv1-armor-select">
-                                <option value="">None (0)</option>
-                                {{#each availableArmor}}
-                                <option value="{{this.id}}" {{#if (eq ../actor.system.selectedArmor this.id)}}selected{{/if}}>
-                                    {{this.name}} ({{this.armorValue}})
-                                </option>
-                                {{/each}}
-                            </select>
-                            <span class="garysv1-armor-value">{{totalArmorValue}}</span>
-                        </div>
-                    </div>
-                    
-                    <div class="garysv1-hp-field garysv1-hp-centered">
-                        <label class="garysv1-label">Hit Points</label>
-                        <div class="garysv1-hp-display">
-                            <input type="number" name="system.currentHitPoints" value="{{#if actor.system.currentHitPoints}}{{actor.system.currentHitPoints}}{{else}}{{actor.system.maximumHitPoints}}{{/if}}" class="garysv1-input garysv1-centered-input garysv1-hp-input" />
-                            <span class="garysv1-hp-separator">/</span>
-                            <span class="garysv1-hp-max">{{actor.system.maximumHitPoints}}</span>
-                        </div>
-                    </div>
-
-                    <div class="garysv1-right-stats">
-                        <div class="garysv1-level-field">
-                            <label class="garysv1-label">{{localize "ldoa.fields.labels.level"}}</label>
-                            <input type="number" name="level" value="{{actor.system.level}}" class="garysv1-input garysv1-centered-input" readonly />
-                        </div>
-
-                        <div class="garysv1-stress-field">
-                            <label class="garysv1-label">
-                                <i class="fas fa-dice-two ldoa-stress-roll-icon ldoa-action-icon" title="{{localize 'ldoa.fields.titles.rollDie'}}" data-actor="{{actor.id}}"></i>
-                                {{localize "ldoa.fields.labels.stressDie"}}
-                            </label>
-                            <select name="system.stress" class="garysv1-select">
-                                {{{selectOptions configuration.usageDieList selected=actor.system.stress localize=true }}}
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tab Navigation -->
-                <div class="garysv1-tab-navigation">
-                <!-- Overview Tab Label -->
-                <div class="garysv1-tab-label {{#if (eq tabSelected "overview")}}garysv1-tab-active{{/if}}" data-actor="{{actor.id}}" data-tab="overview">
-                    <span>{{localize "ldoa.tabs.labels.overview"}}</span>
-                </div>
-
-                <!-- Equipment Tab Label -->
-                <div class="garysv1-tab-label {{#if (eq tabSelected "equipment")}}garysv1-tab-active{{/if}}" data-actor="{{actor.id}}" data-tab="equipment">
-                    <span>{{localize "ldoa.tabs.labels.equipment"}}</span>
-                </div>
-
-                <!-- Magic Tab Label -->
-                <div class="garysv1-tab-label {{#if (eq tabSelected "magic")}}garysv1-tab-active{{/if}}" data-actor="{{actor.id}}" data-tab="magic">
-                    <span>{{localize "ldoa.tabs.labels.magic"}}</span>
-                </div>
-
-                <!-- Boons Tab Label -->
-                <div class="garysv1-tab-label {{#if (eq tabSelected "boons")}}garysv1-tab-active{{/if}}" data-actor="{{actor.id}}" data-tab="boons">
-                    <span>{{localize "ldoa.tabs.labels.boons"}}</span>
-                </div>
-
-                <!-- Languages Tab Label -->
-                <div class="garysv1-tab-label {{#if (eq tabSelected "languages")}}garysv1-tab-active{{/if}}" data-actor="{{actor.id}}" data-tab="languages">
-                    <span>{{localize "ldoa.tabs.labels.languages"}}</span>
-                </div>
-
-                <!-- Saga Tab Label -->
-                <div class="garysv1-tab-label {{#if (eq tabSelected "saga")}}garysv1-tab-active{{/if}}" data-actor="{{actor.id}}" data-tab="saga">
-                    <span>{{localize "ldoa.tabs.labels.saga"}}</span>
-                </div>
-                </div>
-
-                <!-- Tab Content -->
-                <div class="garysv1-tab-content">
-                <!-- Overview Tab Panel -->
-                <div class="garysv1-tab-panel {{#if (eq tabSelected "overview")}}garysv1-tab-active{{/if}}" data-tab="overview">
-                    <div class="garysv1-attributes-full">
-                    {{> "systems/lastdays/templates/partials/garysv1-attribute-list.hbs"}}
-                    </div>
-                </div>
-
-                <!-- Equipment Tab Panel -->
-                <div class="garysv1-tab-panel {{#if (eq tabSelected "equipment")}}garysv1-tab-active{{/if}}" data-tab="equipment">
-                    {{> "systems/lastdays/templates/partials/garysv1-equipment-tab.hbs"}}
-                </div>
-
-                <!-- Magic Tab Panel -->
-                <div class="garysv1-tab-panel {{#if (eq tabSelected "magic")}}garysv1-tab-active{{/if}}" data-tab="magic">
-                    {{> "systems/lastdays/templates/partials/garysv1-magic-tab.hbs"}}
-                </div>
-
-                <!-- Boons Tab Panel -->
-                <div class="garysv1-tab-panel {{#if (eq tabSelected "boons")}}garysv1-tab-active{{/if}}" data-tab="boons">
-                    {{> "systems/lastdays/templates/partials/garysv1-boons-tab.hbs"}}
-                </div>
-
-                <!-- Languages Tab Panel -->
-                <div class="garysv1-tab-panel {{#if (eq tabSelected "languages")}}garysv1-tab-active{{/if}}" data-tab="languages">
-                    {{> "systems/lastdays/templates/partials/garysv1-languages-tab.hbs"}}
-                </div>
-
-                <!-- Saga Tab Panel -->
-                <div class="garysv1-tab-panel {{#if (eq tabSelected "saga")}}garysv1-tab-active{{/if}}" data-tab="saga">
-                    {{> "systems/lastdays/templates/partials/garysv1-saga-tab.hbs"}}
-                </div>
-            </div>
+				<!-- Gear Selection Button -->
+				<div class="garysv1-gear-selection">
+					<div class="garysv1-gear-button-container">
+						{{#if (and actor.system.background actor.system.origin)}}
+						<button type="button" class="garysv1-gear-button garysv1-gear-enabled" data-actor="{{actor.id}}">
+							<i class="fas fa-shopping-bag"></i>
+							Select Starting Gear
+						</button>
+						<p class="garysv1-gear-info">Choose your initial equipment based on your {{actor.system.background}} background and {{actor.system.origin}} origin.</p>
+						{{else}}
+						<button type="button" class="garysv1-gear-button garysv1-gear-disabled" disabled>
+							<i class="fas fa-lock"></i>
+							Select Starting Gear
+						</button>
+						<p class="garysv1-gear-disabled-info">Please finish your character first - select your Persona Background and Origin.</p>
+						{{/if}}
+					</div>
+				</div>
 
 
-                        <!-- Languages and Persona Row -->
-                        <div class="garysv1-summary-row">
-                            <!-- Languages Box -->
-                            <div class="garysv1-languages-summary-box">
-                                <div class="garysv1-languages-summary-header">
-                                    {{#if (gt languageSlots.available 0)}}
-                                    <h3 class="garysv1-languages-summary-title garysv1-languages-title-clickable" 
-                                        data-action="select-languages" 
-                                        title="Click to select {{languageSlots.available}} remaining language(s)">
-                                        Languages <i class="fas fa-edit"></i>
-                                    </h3>
-                                    {{else}}
-                                    <h3 class="garysv1-languages-summary-title">Languages</h3>
-                                    {{/if}}
-                                    <div class="garysv1-languages-counter {{#if languageSlots.isOverLimit}}garysv1-languages-overlimit{{/if}}">
-                                        <span class="garysv1-languages-count">{{languageSlots.used}}/{{languageSlots.total}}</span>
-                                        {{#if languageSlots.isOverLimit}}
-                                        <span class="garysv1-languages-warning" title="Too many languages selected!">⚠️</span>
-                                        {{/if}}
-                                    </div>
-                                </div>
-                                <div class="garysv1-languages-summary-content">
-                                    <!-- Universal Language -->
-                                    <div class="garysv1-language-summary-line">
-                                        <span class="garysv1-language-summary-universal">{{localize "ldoa.languages.thyrenian.name"}}</span>
-                                    </div>
-                                    
-                                    <!-- Automatic Languages from Background -->
-                                    {{#each languageSlots.automaticLanguages}}
-                                    <div class="garysv1-language-summary-line">
-                                        <span class="garysv1-language-summary-automatic">{{localize (languageLocalizePath "ldoa.languages" this "name")}}</span>
-                                    </div>
-                                    {{/each}}
-                                    
-                                    <!-- User Selected Languages -->
-                                    {{#each actor.system.languages}}
-                                    {{#if this}}
-                                    <div class="garysv1-language-summary-line">
-                                        <span class="garysv1-language-summary-name">{{localize (languageLocalizePath "ldoa.languages" this "name")}}</span>
-                                    </div>
-                                    {{/if}}
-                                    {{/each}}
-                                    
-                                    <!-- Empty State -->
-                                    {{#if (and (not (some actor.system.languages)) (eq languageSlots.automaticLanguages.length 0))}}
-                                    <div class="garysv1-language-summary-empty">
-                                        <span class="garysv1-language-summary-note">Only Thyrenian</span>
-                                    </div>
-                                    {{/if}}
-                                </div>
-                            </div>
 
-                            <!-- Persona Box -->
-                        <div class="garysv1-persona-box">
-                            <h3 class="garysv1-persona-title">Persona</h3>
-                            <div class="garysv1-persona-content">
-                                <div class="garysv1-persona-line">
-                                    <span class="garysv1-persona-label">Kin:</span>
-                                    <span class="garysv1-persona-value">
-                                        {{#if actor.system.kin}}
-                                            {{capitalize actor.system.kin}}
-                                        {{else}}
-                                            Human
-                                        {{/if}}
-                                    </span>
-                                </div>
-                                <div class="garysv1-persona-line">
-                                    <span class="garysv1-persona-label">Background:</span>
-                                    <span class="garysv1-persona-value">
-                                        {{#if actor.system.background}}
-                                            {{capitalize actor.system.background}}
-                                        {{else}}
-                                            Barbarian
-                                        {{/if}}
-                                    </span>
-                                </div>
-                            </div>
-                        </div> <!-- Close garysv1-summary-row -->
-                    </div>
+				<!-- Persona Backgrounds Section -->
+				<div class="garysv1-backgrounds">
+					<h3 class="garysv1-backgrounds-title">Persona Backgrounds</h3>
+					<div class="garysv1-backgrounds-content">
+							{{> "systems/lastdays/templates/partials/cs-backgrounds-new.hbs"}}
+					</div>
+				</div>
 
-                    <!-- Magic Tab -->
-                    <div class="garysv1-tab-panel" data-tab="magic">
-                        {{> "systems/lastdays/templates/partials/garysv1-magic-tab.hbs"}}
-                    </div>
+				<!-- Origins Section -->
+				<div class="garysv1-origins">
+					<h3 class="garysv1-origins-title">Origins</h3>
+					<p class="garysv1-origins-intro">You were born...</p>
+					
+					<div class="garysv1-origins-content">
+						<!-- Origins Type Selection -->
+						<div class="garysv1-origins-types">
+							<label class="garysv1-origin-type-option">
+								<input type="radio" name="system.originType" value="barbarian" {{#eq actor.system.originType "barbarian"}}checked{{/eq}} class="garysv1-origin-type-radio"/>
+								<span class="garysv1-origin-type-label">Barbarian</span>
+								<span class="garysv1-origin-type-coins">25 coins</span>
+							</label>
+							<label class="garysv1-origin-type-option">
+								<input type="radio" name="system.originType" value="civilised" {{#eq actor.system.originType "civilised"}}checked{{/eq}} class="garysv1-origin-type-radio"/>
+								<span class="garysv1-origin-type-label">Civilised</span>
+								<span class="garysv1-origin-type-coins">50 coins</span>
+							</label>
+							<label class="garysv1-origin-type-option">
+								<input type="radio" name="system.originType" value="decadent" {{#eq actor.system.originType "decadent"}}checked{{/eq}} class="garysv1-origin-type-radio"/>
+								<span class="garysv1-origin-type-label">Decadent</span>
+								<span class="garysv1-origin-type-coins">100 coins</span>
+							</label>
+						</div>
 
-                    <!-- Boons Tab -->
-                    <div class="garysv1-tab-panel" data-tab="boons">
-                        {{> "systems/lastdays/templates/partials/garysv1-boons-tab.hbs"}}
-                    </div>
+						<!-- Origins List -->
+						<div class="garysv1-origins-list">
+							<!-- Barbarian Origins -->
+							<div class="garysv1-origin-group {{#unless (eq actor.system.originType "barbarian")}}garysv1-hidden{{/unless}}" data-origin-type="barbarian">
+								<div class="garysv1-origin-options">
+									{{#each this.barbarianOrigins}}
+									<label class="garysv1-origin-option">
+										<input type="radio" name="system.origin" value="{{this.value}}" {{#if this.selected}}checked{{/if}} class="garysv1-origin-radio"/>
+										<span class="garysv1-origin-number">{{math @index "+" 1}}.</span>
+										<span class="garysv1-origin-text">{{this.text}}</span>
+									</label>
+									{{/each}}
+								</div>
+							</div>
 
-                    <!-- Languages Tab -->
-                    <div class="garysv1-tab-panel" data-tab="languages">
-                        {{> "systems/lastdays/templates/partials/garysv1-languages-tab.hbs"}}
-                    </div>
+							<!-- Civilised Origins -->
+							<div class="garysv1-origin-group {{#unless (eq actor.system.originType "civilised")}}garysv1-hidden{{/unless}}" data-origin-type="civilised">
+								<div class="garysv1-origin-options">
+									{{#each this.civilisedOrigins}}
+									<label class="garysv1-origin-option">
+										<input type="radio" name="system.origin" value="{{this.value}}" {{#if this.selected}}checked{{/if}} class="garysv1-origin-radio"/>
+										<span class="garysv1-origin-number">{{math @index "+" 1}}.</span>
+										<span class="garysv1-origin-text">{{this.text}}</span>
+									</label>
+									{{/each}}
+								</div>
+							</div>
 
-                    <!-- Saga Tab -->
-                    <div class="garysv1-tab-panel" data-tab="saga">
-                        {{> "systems/lastdays/templates/partials/garysv1-saga-tab.hbs"}}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+							<!-- Decadent Origins -->
+							<div class="garysv1-origin-group {{#unless (eq actor.system.originType "decadent")}}garysv1-hidden{{/unless}}" data-origin-type="decadent">
+									<div class="garysv1-origin-options">
+											{{#each this.decadentOrigins}}
+											<label class="garysv1-origin-option">
+													<input type="radio" name="system.origin" value="{{this.value}}" {{#if this.selected}}checked{{/if}} class="garysv1-origin-radio"/>
+													<span class="garysv1-origin-number">{{math @index "+" 1}}.</span>
+													<span class="garysv1-origin-text">{{this.text}}</span>
+											</label>
+											{{/each}}
+									</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Game Play Mode -->
+		<div class="garysv1-gameplay-mode {{#if actor.system.creationMode}}garysv1-hidden{{/if}}">
+			<div class="garysv1-gameplay-content">
+				<!-- Fixed Header Stats -->
+				<div class="garysv1-game-stats">
+					<div class="garysv1-rest-controls">
+						<label class="garysv1-label">Rest</label>
+						<i class="far fa-pause-circle ldoa-rest-icon" title="Short Rest" data-type="short"></i>
+						<i class="fas fa-bed ldoa-rest-icon" title="Long Rest" data-type="long"></i>
+					</div>
+
+					<div class="garysv1-armor-field">
+						<label class="garysv1-label">Armor</label>
+						<div class="garysv1-armor-display">
+							<select name="system.selectedArmor" class="garysv1-select garysv1-armor-select">
+								<option value="">None (0)</option>
+								{{#each availableArmor}}
+								<option value="{{this.id}}" {{#if (eq ../actor.system.selectedArmor this.id)}}selected{{/if}}>
+										{{this.name}} ({{this.armorValue}})
+								</option>
+								{{/each}}
+							</select>
+							<span class="garysv1-armor-value">{{totalArmorValue}}</span>
+						</div>
+					</div>
+					
+					<div class="garysv1-hp-field garysv1-hp-centered">
+						<label class="garysv1-label">Hit Points</label>
+						<div class="garysv1-hp-display">
+							<input type="number" name="system.currentHitPoints" value="{{#if actor.system.currentHitPoints}}{{actor.system.currentHitPoints}}{{else}}{{actor.system.maximumHitPoints}}{{/if}}" class="garysv1-input garysv1-centered-input garysv1-hp-input" />
+							<span class="garysv1-hp-separator">/</span>
+							<span class="garysv1-hp-max">{{actor.system.maximumHitPoints}}</span>
+						</div>
+					</div>
+
+					<div class="garysv1-weapons-container">
+						<label class="garysv1-label garysv1-weapons-header">Weapons</label>
+						
+						<div class="garysv1-weapon-row">
+							<span class="garysv1-weapon-label">M</span>
+							<select name="system.selectedMeleeWeapon" class="garysv1-weapon-select" data-action="melee">
+								{{#each availableMeleeWeapons}}
+								<option value="{{this.id}}" {{#if (eq ../actor.system.selectedMeleeWeapon this.id)}}selected{{/if}}>{{this.name}}</option>
+								{{else}}
+								<option value="">No weapons available</option>
+								{{/each}}
+							</select>
+							<button type="button" class="garysv1-weapon-roll" data-roll-type="melee">
+								<i class="fas fa-dice-d20"></i>
+							</button>
+						</div>
+
+						<div class="garysv1-weapon-row">
+							<span class="garysv1-weapon-label">R</span>
+							<select name="system.selectedRangedWeapon" class="garysv1-weapon-select" data-action="ranged">
+								{{#each availableRangedWeapons}}
+								<option value="{{this.id}}" {{#if (eq ../actor.system.selectedRangedWeapon this.id)}}selected{{/if}}>{{this.name}}</option>
+								{{else}}
+								<option value="">No weapons available</option>
+								{{/each}}
+							</select>
+							<button type="button" class="garysv1-weapon-roll" data-roll-type="ranged">
+								<i class="fas fa-dice-d20"></i>
+							</button>
+						</div>
+					</div>
+
+					<div class="garysv1-level-field">
+						<label class="garysv1-label">{{localize "ldoa.fields.labels.level"}}</label>
+						<input type="number" name="level" value="{{actor.system.level}}" class="garysv1-input garysv1-centered-input" readonly />
+					</div>
+
+					<div class="garysv1-stress-field">
+						<label class="garysv1-label">
+							<i class="fas fa-dice-two ldoa-stress-roll-icon ldoa-action-icon" title="{{localize 'ldoa.fields.titles.rollDie'}}" data-actor="{{actor.id}}"></i>
+							{{localize "ldoa.fields.labels.stressDie"}}
+						</label>
+						<select name="system.stress" class="garysv1-select">
+								{{{selectOptions configuration.usageDieList selected=actor.system.stress localize=true }}}
+						</select>
+					</div>
+				</div>
+
+				<!-- Tab Navigation -->
+				<div class="garysv1-tab-navigation">
+				<!-- Overview Tab Label -->
+				<div class="garysv1-tab-label {{#if (eq tabSelected "overview")}}garysv1-tab-active{{/if}}" data-actor="{{actor.id}}" data-tab="overview">
+					<span>{{localize "ldoa.tabs.labels.overview"}}</span>
+				</div>
+
+				<!-- Equipment Tab Label -->
+				<div class="garysv1-tab-label {{#if (eq tabSelected "equipment")}}garysv1-tab-active{{/if}}" data-actor="{{actor.id}}" data-tab="equipment">
+					<span>{{localize "ldoa.tabs.labels.equipment"}}</span>
+				</div>
+
+				<!-- Magic Tab Label -->
+				<div class="garysv1-tab-label {{#if (eq tabSelected "magic")}}garysv1-tab-active{{/if}}" data-actor="{{actor.id}}" data-tab="magic">
+					<span>{{localize "ldoa.tabs.labels.magic"}}</span>
+				</div>
+
+				<!-- Boons Tab Label -->
+				<div class="garysv1-tab-label {{#if (eq tabSelected "boons")}}garysv1-tab-active{{/if}}" data-actor="{{actor.id}}" data-tab="boons">
+					<span>{{localize "ldoa.tabs.labels.boons"}}</span>
+				</div>
+
+				<!-- Languages Tab Label -->
+				<div class="garysv1-tab-label {{#if (eq tabSelected "languages")}}garysv1-tab-active{{/if}}" data-actor="{{actor.id}}" data-tab="languages">
+					<span>{{localize "ldoa.tabs.labels.languages"}}</span>
+				</div>
+
+				<!-- Saga Tab Label -->
+				<div class="garysv1-tab-label {{#if (eq tabSelected "saga")}}garysv1-tab-active{{/if}}" data-actor="{{actor.id}}" data-tab="saga">
+					<span>{{localize "ldoa.tabs.labels.saga"}}</span>
+				</div>
+				</div>
+
+				<!-- Tab Content -->
+				<div class="garysv1-tab-content">
+				<!-- Overview Tab Panel -->
+				<div class="garysv1-tab-panel {{#if (eq tabSelected "overview")}}garysv1-tab-active{{/if}}" data-tab="overview">
+					<div class="garysv1-attributes-full">
+					{{> "systems/lastdays/templates/partials/garysv1-overview-tab.hbs"}}
+					</div>
+				</div>
+
+				<!-- Equipment Tab Panel -->
+				<div class="garysv1-tab-panel {{#if (eq tabSelected "equipment")}}garysv1-tab-active{{/if}}" data-tab="equipment">
+					{{> "systems/lastdays/templates/partials/garysv1-equipment-tab.hbs"}}
+				</div>
+
+				<!-- Magic Tab Panel -->
+				<div class="garysv1-tab-panel {{#if (eq tabSelected "magic")}}garysv1-tab-active{{/if}}" data-tab="magic">
+					{{> "systems/lastdays/templates/partials/garysv1-magic-tab.hbs"}}
+				</div>
+
+				<!-- Boons Tab Panel -->
+				<div class="garysv1-tab-panel {{#if (eq tabSelected "boons")}}garysv1-tab-active{{/if}}" data-tab="boons">
+					{{> "systems/lastdays/templates/partials/garysv1-boons-tab.hbs"}}
+				</div>
+
+				<!-- Languages Tab Panel -->
+				<div class="garysv1-tab-panel {{#if (eq tabSelected "languages")}}garysv1-tab-active{{/if}}" data-tab="languages">
+					{{> "systems/lastdays/templates/partials/garysv1-languages-tab.hbs"}}
+				</div>
+
+				<!-- Saga Tab Panel -->
+				<div class="garysv1-tab-panel {{#if (eq tabSelected "saga")}}garysv1-tab-active{{/if}}" data-tab="saga">
+					{{> "systems/lastdays/templates/partials/garysv1-saga-tab.hbs"}}
+				</div>
+			</div>
+
+
+					<!-- Languages and Persona Row -->
+					<div class="garysv1-summary-row">
+						<!-- Languages Box -->
+						<div class="garysv1-languages-summary-box">
+							<div class="garysv1-languages-summary-header">
+								{{#if (gt languageSlots.available 0)}}
+								<h3 class="garysv1-languages-summary-title garysv1-languages-title-clickable" 
+									data-action="select-languages" 
+									title="Click to select {{languageSlots.available}} remaining language(s)">
+									Languages <i class="fas fa-edit"></i>
+								</h3>
+								{{else}}
+								<h3 class="garysv1-languages-summary-title">Languages</h3>
+								{{/if}}
+								<div class="garysv1-languages-counter {{#if languageSlots.isOverLimit}}garysv1-languages-overlimit{{/if}}">
+									<span class="garysv1-languages-count">{{languageSlots.used}}/{{languageSlots.total}}</span>
+									{{#if languageSlots.isOverLimit}}
+									<span class="garysv1-languages-warning" title="Too many languages selected!">⚠️</span>
+									{{/if}}
+								</div>
+							</div>
+							<div class="garysv1-languages-summary-content">
+									<!-- Universal Language -->
+									<div class="garysv1-language-summary-line">
+										<span class="garysv1-language-summary-universal">{{localize "ldoa.languages.thyrenian.name"}}</span>
+									</div>
+									
+									<!-- Automatic Languages from Background -->
+									{{#each languageSlots.automaticLanguages}}
+									<div class="garysv1-language-summary-line">
+										<span class="garysv1-language-summary-automatic">{{localize (languageLocalizePath "ldoa.languages" this "name")}}</span>
+									</div>
+									{{/each}}
+									
+									<!-- User Selected Languages -->
+									{{#each actor.system.languages}}
+									{{#if this}}
+									<div class="garysv1-language-summary-line">
+										<span class="garysv1-language-summary-name">{{localize (languageLocalizePath "ldoa.languages" this "name")}}</span>
+									</div>
+									{{/if}}
+									{{/each}}
+									
+									<!-- Empty State -->
+									{{#if (and (not (some actor.system.languages)) (eq languageSlots.automaticLanguages.length 0))}}
+									<div class="garysv1-language-summary-empty">
+										<span class="garysv1-language-summary-note">Only Thyrenian</span>
+									</div>
+									{{/if}}
+							</div>
+						</div>
+
+						<!-- Persona Box -->
+						<div class="garysv1-persona-box">
+							<h3 class="garysv1-persona-title">Persona</h3>
+							<div class="garysv1-persona-content">
+								<div class="garysv1-persona-line">
+									<span class="garysv1-persona-label">Kin:</span>
+									<span class="garysv1-persona-value">
+										{{#if actor.system.kin}}
+												{{capitalize actor.system.kin}}
+										{{else}}
+												Human
+										{{/if}}
+									</span>
+								</div>
+								<div class="garysv1-persona-line">
+									<span class="garysv1-persona-label">Background:</span>
+									<span class="garysv1-persona-value">
+										{{#if actor.system.background}}
+												{{capitalize actor.system.background}}
+										{{else}}
+												Barbarian
+										{{/if}}
+									</span>
+								</div>
+							</div>
+						</div> <!-- Close garysv1-summary-row -->
+					</div>
+
+					<!-- Magic Tab -->
+					<div class="garysv1-tab-panel" data-tab="magic">
+							{{> "systems/lastdays/templates/partials/garysv1-magic-tab.hbs"}}
+					</div>
+
+					<!-- Boons Tab -->
+					<div class="garysv1-tab-panel" data-tab="boons">
+							{{> "systems/lastdays/templates/partials/garysv1-boons-tab.hbs"}}
+					</div>
+
+					<!-- Languages Tab -->
+					<div class="garysv1-tab-panel" data-tab="languages">
+							{{> "systems/lastdays/templates/partials/garysv1-languages-tab.hbs"}}
+					</div>
+
+					<!-- Saga Tab -->
+					<div class="garysv1-tab-panel" data-tab="saga">
+							{{> "systems/lastdays/templates/partials/garysv1-saga-tab.hbs"}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </form>

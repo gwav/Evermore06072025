@@ -1,0 +1,70 @@
+<section class="garysv1-character-sheet">
+
+  <!-- Actor Header -->
+  <header class="sheet-header">
+    <h1>{{actor.name}}</h1>
+  </header>
+
+  <!-- ===================== -->
+  <!-- Top Stats and Actions -->
+  <!-- ===================== -->
+  <div class="garysv1-char-row-grid">
+    <!-- Your stat grid layout goes here -->
+    <select name="system.selectedArmor" class="garysv1-select garysv1-armor-select">
+      {{#each availableArmor}}
+        <option value="{{this.id}}" {{#if (eq ../actor.system.selectedArmor this.id)}}selected{{/if}}>
+          {{this.name}} ({{this.armorValue}})
+        </option>
+      {{/each}}
+    </select>
+    <span class="garysv1-armor-value">{{totalArmorValue}}</span>
+    <!-- Short/Long Rest, Armor, HP, Weapons, Level, Stress -->
+    <!-- Melee Weapon Dropdown -->
+    <select class="garysv1-weapon-select" name="system.selectedMeleeWeapon">
+      {{#each availableMeleeWeapons}}
+        <option value="{{this.id}}" {{#if (eq ../actor.system.selectedMeleeWeapon this.id)}}selected{{/if}}>
+          {{this.name}}
+        </option>
+      {{/each}}
+    </select>
+
+    <!-- Ranged Weapon Dropdown -->
+    <select class="garysv1-weapon-select" name="system.selectedRangedWeapon">
+      {{#each availableRangedWeapons}}
+        <option value="{{this.id}}" {{#if (eq ../actor.system.selectedRangedWeapon this.id)}}selected{{/if}}>
+          {{this.name}}
+        </option>
+      {{/each}}
+    </select>
+
+  </div>
+
+  <!-- ================ -->
+  <!-- Tab Navigation -->
+  <!-- ================ -->
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item active" data-tab="equipment">{{localize "ldoa.tabs.equipment"}}</a>
+    <a class="item" data-tab="abilities">{{localize "ldoa.tabs.abilities"}}</a>
+    <a class="item" data-tab="notes">{{localize "ldoa.tabs.notes"}}</a>
+  </nav>
+
+  <!-- =============== -->
+  <!-- Tab Body Wrapper -->
+  <!-- =============== -->
+  <section class="sheet-body">
+    <div class="tab active" data-group="primary" data-tab="equipment">
+      {{> "systems/ldoa/templates/actors/tabs/garysv1-equipment-tab.hbs"}}
+    </div>
+    <div class="tab" data-group="primary" data-tab="abilities">
+      {{> "systems/ldoa/templates/actors/tabs/garysv1-abilities-tab.hbs"}}
+    </div>
+    <div class="tab" data-group="primary" data-tab="notes">
+      {{> "systems/ldoa/templates/actors/tabs/garysv1-notes-tab.hbs"}}
+    </div>
+  </section>
+</section>
+{{! End of garysv1-character-sheet.hbs }}
+{{! This file is part of the Last Days of Old Earth system for Foundry VTT. }}
+{{! It defines the character sheet layout and includes partials for different tabs. }}
+{{! The tabs include equipment, abilities, and notes sections. }}
+{{! The equipment tab is further broken down into a grid layout with filters for different item types. }}
