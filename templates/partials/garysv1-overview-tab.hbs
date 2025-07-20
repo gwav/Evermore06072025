@@ -1,13 +1,13 @@
 <section class="garysv1-abilities-section">
-    <div class="garysv1-abilities-header">
-        {{#if actor.system.creationMode}}
-            <h3>Attributes</h3>
-        {{else}}
-            <h3>Resolution</h3>
-        {{/if}}
-    </div>
-    
-    <div class="garysv1-abilities-list">
+    <div class="garysv1-resolution-frame">
+        <div class="garysv1-abilities-header">
+            {{#if actor.system.creationMode}}
+                <h3>Attributes</h3>
+            {{else}}
+                <h3 class="garysv1-resolution-title">Resolution</h3>
+            {{/if}}
+        </div>
+        <div class="garysv1-abilities-list">
         <!-- Strength -->
         <div class="garysv1-ability-container">
             <div class="garysv1-ability-row ldoa-attribute-roll-icon" data-actor="{{actor.id}}" data-attribute="strength" 
@@ -165,11 +165,77 @@
         </div>
     </div>
 
-    <!-- Roll All Attributes Button -->
+</n-    <!-- Roll All Attributes Button -->
     <div class="garysv1-roll-all-container">
         <button type="button" class="garysv1-roll-all-button" data-actor="{{actor.id}}" 
                 title="Roll all attribute tests">
             <i class="fas fa-dice-d20"></i> Roll All Attributes
         </button>
+    </div>
+
+    <!-- Persona & Languages Row -->
+    <div class="garysv1-persona-languages-row" style="display: flex; gap: 2em; align-items: flex-start;">
+        <div class="garysv1-persona-box" style="flex: 1;">
+            <h3 class="garysv1-persona-title">Persona</h3>
+            <div class="garysv1-persona-content">
+                <div class="garysv1-persona-line">
+                    <span class="garysv1-persona-label">Kin:</span>
+                    <span class="garysv1-persona-value">
+                        {{#if actor.system.kin}}
+                            {{capitalize actor.system.kin}}
+                        {{else}}
+                            Human
+                        {{/if}}
+                    </span>
+                </div>
+                <div class="garysv1-persona-line">
+                    <span class="garysv1-persona-label">Background:</span>
+                    <span class="garysv1-persona-value">
+                        {{#if actor.system.background}}
+                            {{capitalize actor.system.background}}
+                        {{else}}
+                            Barbarian
+                        {{/if}}
+                    </span>
+                </div>
+                <div class="garysv1-persona-line">
+                    <span class="garysv1-persona-label">Origin:</span>
+                    <span class="garysv1-persona-value">
+                        {{#if actor.system.origin}}
+                            {{capitalize actor.system.origin}}
+                        {{else}}
+                            None
+                        {{/if}}
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="garysv1-languages-box" style="flex: 1;">
+            <h3 class="garysv1-persona-title">Languages</h3>
+            <div class="garysv1-persona-content">
+                <div class="garysv1-persona-line">
+                    <span class="garysv1-persona-label">Universal:</span>
+                    <span class="garysv1-persona-value">{{localize "ldoa.languages.thyrenian.name"}}</span>
+                </div>
+                {{#each languageSlots.automaticLanguages}}
+                <div class="garysv1-persona-line">
+                    <span class="garysv1-persona-label">Automatic:</span>
+                    <span class="garysv1-persona-value">{{localize (languageLocalizePath "ldoa.languages" this "name")}}</span>
+                </div>
+                {{/each}}
+                {{#each actor.system.languages}}
+                {{#if this}}
+                <div class="garysv1-persona-line">
+                    <span class="garysv1-persona-label">Selected:</span>
+                    <span class="garysv1-persona-value">{{localize (languageLocalizePath "ldoa.languages" this "name")}}</span>
+                </div>
+                {{/if}}
+                {{/each}}
+                {{#if (and (not (some actor.system.languages)) (eq languageSlots.automaticLanguages.length 0))}}
+                <div class="garysv1-persona-line">
+                </div>
+                {{/if}}
+            </div>
+        </div>
     </div>
 </section>

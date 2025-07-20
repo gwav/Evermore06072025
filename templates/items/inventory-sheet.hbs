@@ -1,0 +1,117 @@
+<form class="item-sheet" autocomplete="off">
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" name="name" value="{{item.name}}" />
+  </div>
+
+  <div class="form-group">
+    <label>Description</label>
+    <textarea name="system.description">{{system.description}}</textarea>
+  </div>
+
+  <div class="form-group">
+    <label>Cost</label>
+    <input type="text" name="system.cost" value="{{system.cost}}" />
+  </div>
+
+  <div class="form-group">
+    <label>Notes</label>
+    <textarea name="system.notes">{{system.notes}}</textarea>
+  </div>
+
+  <div class="form-group">
+    <label>Quantity</label>
+    <input type="number" name="system.quantity" value="{{system.quantity}}" min="1" />
+  </div>
+
+  <div class="form-group">
+    <label>Item Type</label>
+    <select name="system.subtype">
+      <option value="">--</option>
+      <option value="weapon" {{#if (eq system.subtype "weapon")}}selected{{/if}}>Weapon</option>
+      <option value="armor" {{#if (eq system.subtype "armor")}}selected{{/if}}>Armor</option>
+      <option value="container" {{#if (eq system.subtype "container")}}selected{{/if}}>Container</option>
+      <option value="consumable" {{#if (eq system.subtype "consumable")}}selected{{/if}}>Consumable</option>
+      <option value="other" {{#if (eq system.subtype "other")}}selected{{/if}}>Other</option>
+    </select>
+  </div>
+
+  {{#if (eq system.subtype "weapon")}}
+    <hr>
+    <div class="form-group">
+      <label>Damage</label>
+      <input type="text" name="system.damage" value="{{system.damage}}" />
+    </div>
+    <div class="form-group">
+      <label>Damage Types</label>
+      <div style="display: flex; gap: 8px; align-items: center;">
+        <select id="damageTypeSelect">
+          <option value="">--</option>
+          <option value="Acid">Acid</option>
+          <option value="Bludgeoning">Bludgeoning</option>
+          <option value="Cold">Cold</option>
+          <option value="Fire">Fire</option>
+          <option value="Force">Force</option>
+          <option value="Lightning">Lightning</option>
+          <option value="Necrotic">Necrotic</option>
+          <option value="Piercing">Piercing</option>
+          <option value="Poison">Poison</option>
+          <option value="Psychic">Psychic</option>
+          <option value="Radiant">Radiant</option>
+          <option value="Slashing">Slashing</option>
+          <option value="Thunder">Thunder</option>
+        </select>
+        <button type="button" id="addDamageType" style="padding: 2px 8px;">+</button>
+      </div>
+      <div id="damageTypeTags" style="margin-top: 8px;">
+        {{#each (split system.damageType ',')}}
+          {{#if this}}
+          <span class="damage-type-tag" style="background: #eee; border-radius: 8px; padding: 2px 8px; margin-right: 4px;">
+            {{this}}
+            <button type="button" class="remove-damage-type" data-type="{{this}}" style="margin-left: 4px;">–</button>
+          </span>
+          {{/if}}
+        {{/each}}
+      </div>
+      <input type="hidden" name="system.damageType" value="{{system.damageType}}" />
+    </div>
+    <div class="form-group">
+      <label>Hands</label>
+      <input type="number" name="system.hands" value="{{system.hands}}" min="1" max="2" />
+    </div>
+    <div class="form-group">
+      <label>Rarity</label>
+      <input type="text" name="system.rarity" value="{{system.rarity}}" />
+    </div>
+
+  {{/if}}
+
+
+  {{#if (eq system.subtype "armor")}}
+    <hr>
+    <div class="form-group">
+      <label>Armor Reduction (AR)</label>
+      <input type="number" name="system.armorValue" value="{{system.armorValue}}" min="0" />
+    </div>
+    <div class="form-group">
+      <label>Rarity</label>
+      <input type="text" name="system.rarity" value="{{system.rarity}}" />
+    </div>
+  {{/if}}
+
+  {{#if (eq system.subtype "container")}}
+    <hr>
+    <div class="form-group">
+      <label>Capacity</label>
+      <input type="number" name="system.capacity" value="{{system.capacity}}" min="0" />
+    </div>
+  {{/if}}
+
+  {{#if (eq system.subtype "consumable")}}
+    <hr>
+    <div class="form-group">
+      <label>Usage Die</label>
+      <input type="text" name="system.usageDie" value="{{system.usageDie}}" />
+    </div>
+  {{/if}}
+</form>
