@@ -509,7 +509,6 @@
       "consumables": "Consumible",
       "demonName": "Nombre",
       "demons": "Demonios",
-      "equipment": "Otro equipo",
       "boons": "Dones",
       "itemName": "Objeto",
       "itemQuantity": "Cantidad",
@@ -719,7 +718,6 @@
     "tabs": {
       "labels": {
         "background": "Básico",
-        "equipment": "Posesiones",
         "front": "Principal",
         "magic": "Magia",
         "saga": "Saga"

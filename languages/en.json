@@ -379,7 +379,9 @@
         "otherPossessions": "Other Possessions",
         "playerName": "Player",
         "power": "Power",
-        "quantity": "Quantity",
+        "quantity": "Qt",
+        "notes": "Notes",
+        "actions": "Actions",
         "rarity": "Rarity",
         "resistances": "Resistances",
         "rollType": "Roll Type",
@@ -415,7 +417,9 @@
 
       },
       "placeholders": {
-        "specialEffects": "e.g., Advantage on Intimidation checks"
+        "specialEffects": "e.g., Advantage on Intimidation checks",
+        "description": "Enter equipment description...",
+        "notes": "Enter your notes..."
       },
       "titles": {
         "calculatedAttribute": "Consult the Basics tab to alter your attributes.",
@@ -542,7 +546,6 @@
       "consumables": "Consumables",
       "demonName": "Name",
       "demons": "Demons",
-      "equipment": "Other Equipment",
       "boons": "Boons",
       "itemName": "Item",
       "itemQuantity": "Quantity",
@@ -615,6 +618,7 @@
         "noBoons": "No boons yet.",
         "dragBoonsFromCompendium": "Drag boons from the Boons compendium to add them to this character."
       },
+
       "stories": {
         "noStories": "No stories yet.",
         "dragStoriesFromCompendium": "Drag stories from the compendium to add them to this character."
@@ -872,7 +876,6 @@
       "labels": {
         "background": "Basics",
         "boons": "Boons",
-        "equipment": "Equipment",
         "front": "Front Page",
         "languages": "Languages",
         "magic": "Magic",

@@ -509,7 +509,6 @@
       "consumables": "Расходные материалы",
       "demonName": "Имя",
       "demons": "Демоны",
-      "equipment": "Другое снаряжение",
       "boons": "Дары",
       "itemName": "Предметы",
       "itemQuantity": "Кол-во",
@@ -719,7 +718,6 @@
     "tabs": {
       "labels": {
         "background": "Основное",
-        "equipment": "Имущество",
         "front": "Главная страница",
         "magic": "Магия",
         "saga": "Сага"

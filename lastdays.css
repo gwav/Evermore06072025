@@ -1,3 +1,21 @@
+.garysv1-title-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+
+
+.underline-extend {
+  height: 2px;
+  background: linear-gradient(to left, #bdbdbd 0%, #e2e2db 100%);
+  width: 100%;
+  border-radius: 0;
+}
+
+.garysv1-resolution-frame {
+  background: #f8f8f5; 
+  padding: 1.2em 1.5em 1.2em 1.5em;
+}
 /* Horizontal layout for all 3 bonus boxes in resolution abilities */
 .garysv1-bonus-box {
   display: flex;
@@ -37,6 +55,17 @@
 
 .ldoa-attribute-roll-icon, .ldoa-dice-roll-icon, .ldoa-usage-die-roll-icon {
 	cursor: pointer;
+}
+
+/* Centered, white background for Resolution title */
+.garysv1-resolution-title {
+  background: #fff;
+  text-align: center;
+  padding: 0.25em 0.5em;
+  margin: 0 auto 10px;
+  display: block;
+  width: auto;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
 }
 
 /* Frame around each bonus number */
@@ -1275,38 +1304,13 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-  min-width: 90px; /* reduce from 100px */
+	min-width: 90px; /* reduce from 100px */
 	margin-left: 8px; /* Add space between stress and level fields */
 }
 
-/* Abilities Section Styling */
 
 /* Renamed from .garysv1-abilities-section to .garysv1-resolution for clarity */
-.garysv1-resolution {
-	background-color: #f9f9f9;
-	border: 1px solid #ddd;
-	border-radius: 5px;
-	padding: 15px;
-}
 
-
-.garysv1-resolution-header h3 {
-	margin: 0 0 15px 0;
-	color: #333;
-	font-size: 1.2em;
-	font-weight: bold;
-	text-align: center;
-	border-bottom: 1px solid #ccc;
-	padding-bottom: 8px;
-}
-
-
-.garysv1-resolution-list {
-	display: flex;
-	flex-direction: column;
-	gap: 8px;
-	margin-bottom: 15px;
-}
 
 /* Creation Mode - Vertical Attributes Layout */
 .garysv1-creation-mode .garysv1-ability-row {
@@ -1918,6 +1922,7 @@ input, select {
 .garysv1-persona-line {
 	display: flex;
 	align-items: center;
+	background-color: #f8f9fa;
 	gap: 0px;
 }
 
@@ -1930,6 +1935,17 @@ input, select {
 .garysv1-persona-value {
 	color: #007acc;
 	font-weight: bold;
+}
+
+.garysv1-languages-box {
+	grid-area: languages;
+	border: 1px solid #dee2e6;
+	padding: 12px;
+	border-radius: 6px;
+	background-color: #f8f9fa;
+	flex: 1;
+	min-width: 200px;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 /* Origins Section for Character Creation */
@@ -2392,7 +2408,7 @@ input, select {
   position: relative;
 }
 
-.garysv1-ability-row .garysv1-resolution-bonus-row {
+ .garysv1-resolution-bonus-row {
   display: flex;
   flex-direction: row;
   justify-content: center;

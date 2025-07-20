@@ -12,15 +12,12 @@
         "minimum": 13,
         "verified": "13"
     },
-    "itemTypes": [
-        "weapon",
-        "armor",
-        "shield",
-        "container",
-        "consumable",
-        "inventory",
-        "other"
-    ],
+"itemTypes": [
+  "inventory",
+  "consumable",
+  "container",
+  "other"
+],
     "esmodules": [ "lastdays.js" ],
     "styles": [ "lastdays.css" ],
     "languages": [
@@ -51,6 +48,12 @@
             "label": "Boons",
             "path": "packs/boons.db",
             "type": "Item"
+        },
+        {
+            "name": "inventory",
+            "label": "Inventory",
+            "path": "packs/inventory.db",
+            "type": "Item"  
         }
     ],
     "relationships": {

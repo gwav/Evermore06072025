@@ -1,336 +1,328 @@
 {
-    "Actor": {
-        "types": [
-            "character",
-            "creature"
-        ],
-        "character": {
-            "armour": {
-                "description": "",
-                "type": "none",
-                "shield": "no"
-            },
-            "attributes": {
-                "strength": 10,
-                "dexterity": 10,
-                "constitution": 10,
-                "intelligence": 10,
-                "wisdom": 10,
-                "charisma": 10
-            },
-            "beginning": {
-                "strength": 10,
-                "dexterity": 10,
-                "constitution": 10,
-                "intelligence": 10,
-                "wisdom": 10,
-                "charisma": 10
-            },
-            "calculated": {
-                "strength": 10,
-                "dexterity": 10,
-                "constitution": 10,
-                "intelligence": 10,
-                "wisdom": 10,
-                "charisma": 10
-            },
-            "creationBonus": {
-                "strength": 0,
-                "dexterity": 0,
-                "constitution": 0,
-                "intelligence": 0,
-                "wisdom": 0,
-                "charisma": 0
-            },
-            "inGameBonus": {
-                "strength": 0,
-                "dexterity": 0,
-                "constitution": 0,
-                "intelligence": 0,
-                "wisdom": 0,
-                "charisma": 0
-            },
-            "background": "barbarian",
-            "birth": "",
-            "kin": "human",
-            "coins": {
-                "first": 0,
-                "second": 0,
-                "third": 0,
-                "fourth": 0,
-                "fifth": 0
-            },
-            "currentHitPoints": 0,
-            "description": "",
-            "damageDice": {
-                "armed": "d6",
-                "unarmed": "d4"
-            },
-            "stress": "d6",
-            "boons": [
-                "",
-                "",
-                "",
-                "",
-                ""
-            ],
-            "languages": [
-                "",
-                "",
-                "",
-                "",
-                ""
-            ],
-            "level": 1,
-            "origin": "barbarian-0",
-            "originType": "barbarian",
-            "playerName": "",
-            "stories": {
-                "00": {
-                    "improvements": {
-                        "attributes": {
-                            "first": {
-                                "choice": "none"
-                            },
-                            "granted": true
-                        },
-                        "boon": {
-                            "granted": false
-                        },
-                        "hitPoints": 1,
-                        "level": "ldoa.levels.names.2"
-                    },
-                    "title": ""
-                },
-                "01": {
-                    "improvements": {
-                        "attributes": {
-                            "granted": false
-                        },
-                        "boon": {
-                            "choice": "none",
-                            "granted": true
-                        },
-                        "hitPoints": 1,
-                        "level": "ldoa.levels.names.3"
-                    },
-                    "title": ""
-                },
-                "02": {
-                    "improvements": {
-                        "attributes": {
-                            "first": {
-                                "choice": "none"
-                            },
-                            "granted": true,
-                            "second": {
-                                "choice": "none"
-                            }
-                        },
-                        "boon": {
-                            "granted": false
-                        },
-                        "hitPoints": 1,
-                        "level": "ldoa.levels.names.4"
-                    },
-                    "title": ""
-                },
-                "03": {
-                    "improvements": {
-                        "attributes": {
-                            "granted": false
-                        },
-                        "boon": {
-                            "choice": "none",
-                            "granted": true
-                        },
-                        "hitPoints": 1,
-                        "level": "ldoa.levels.names.5"
-                    },
-                    "title": ""
-                },
-                "04": {
-                    "improvements": {
-                        "attributes": {
-                            "first": {
-                                "choice": "none"
-                            },
-                            "granted": true
-                        },
-                        "boon": {
-                            "granted": false
-                        },
-                        "hitPoints": 1,
-                        "level": "ldoa.levels.names.6"
-                    },
-                    "title": ""
-                },
-                "05": {
-                    "improvements": {
-                        "attributes": {
-                            "granted": false
-                        },
-                        "boon": {
-                            "choice": "none",
-                            "granted": true
-                        },
-                        "hitPoints": 1,
-                        "level": "ldoa.levels.names.7"
-                    },
-                    "title": ""
-                },
-                "06": {
-                    "improvements": {
-                        "attributes": {
-                            "first": {
-                                "choice": "none"
-                            },
-                            "granted": true,
-                            "second": {
-                                "choice": "none"
-                            }
-                        },
-                        "boon": {
-                            "granted": false
-                        },
-                        "hitPoints": 1,
-                        "level": "ldoa.levels.names.8"
-                    },
-                    "title": ""
-                },
-                "07": {
-                    "improvements": {
-                        "attributes": {
-                            "granted": false
-                        },
-                        "boon": {
-                            "choice": "none",
-                            "granted": true
-                        },
-                        "hitPoints": 1,
-                        "level": "ldoa.levels.names.9"
-                    },
-                    "title": ""
-                },
-                "08": {
-                    "improvements": {
-                        "attributes": {
-                            "granted": false
-                        },
-                        "stressDie": "d8",
-                        "boon": {
-                            "granted": false
-                        },
-                        "hitPoints": 1,
-                        "level": "ldoa.levels.names.10"
-                    },
-                    "title": ""
-                }
-            },
-            "summoning": {
-                "demon": "unused",
-                "spirit": "unused"
-            },
-            "selectedArmor": "",
-            "tabSelected": "front-page",
-            "creationMode": true
-        },
-        "creature": {
-            "description": "",
-            "level": 1,
-            "hitPoints": 5,
-            "resistances": "",
-            "vulnerabilities": ""
-        }
-    },
-    "creature": {
-        "description": "",
-        "level": 1,
-        "hitPoints": 5,
-        "resistances": "",
-        "vulnerabilities": ""
-    },
-    "Item": {
-        "types": [
-            "consumable",
-            "creature_action",
-            "demon",
-            "equipment",
-            "boon",
-            "origin",
-            "spell",
-            "spirit",
-            "weapon",
-            "inventory"
-        ],
-        "templates": {},
-        "consumable": {
-            "description": "",
-            "quantity": 1,
-            "rarity": "common",
-            "usageDie": {
-                "current": "^",
-                "maximum": "d4"
-            }
-        },
-        "creature_action": {
-            "attributes": {
-                "strength": false,
-                "dexterity": false,
-                "constitution": false,
-                "intelligence": false,
-                "wisdom": false,
-                "charisma": false
-            },
-            "damage": "",
-            "description": ""
-        },
-        "demon": {
-            "description": ""
-        },
-        "equipment": {
-            "description": "",
-            "rarity": "common",
-            "armorValue": 0,
-            "cost": 0,
-            "quantity": 1,
-            "notes": ""
-        },
-        "boon": {
-            "description": "",
-            "power": "balance",
-            "effects": {
-                "attributes": {
-                    "strength": 0,
-                    "dexterity": 0,
-                    "constitution": 0,
-                    "intelligence": 0,
-                    "wisdom": 0,
-                    "charisma": 0
-                },
-                "hitPoints": 0,
-                "initiative": 0,
-                "attackRolls": 0,
-                "damageRolls": 0,
-                "armorRating": 0,
-                "special": ""
-            }
-        },
-        "origin": {
-            "backgrounds": []
-        },
-        "spell": {
-            "description": "",
-            "state": "available"
-        },
-        "spirit": {
-            "description": ""
-        },
-        "weapon": {
-            "description": "",
-            "hands": 1,
-            "rarity": "common",
-            "type": "melee"
-        }
-    }
+	"Actor": {
+		"types": [
+			"character",
+			"creature"
+		],
+		"character": {
+			"armour": {
+				"description": "",
+				"type": "none",
+				"shield": "no"
+			},
+			"attributes": {
+				"strength": 10,
+				"dexterity": 10,
+				"constitution": 10,
+				"intelligence": 10,
+				"wisdom": 10,
+				"charisma": 10
+			},
+			"beginning": {
+				"strength": 10,
+				"dexterity": 10,
+				"constitution": 10,
+				"intelligence": 10,
+				"wisdom": 10,
+				"charisma": 10
+			},
+			"calculated": {
+				"strength": 10,
+				"dexterity": 10,
+				"constitution": 10,
+				"intelligence": 10,
+				"wisdom": 10,
+				"charisma": 10
+			},
+			"creationBonus": {
+				"strength": 0,
+				"dexterity": 0,
+				"constitution": 0,
+				"intelligence": 0,
+				"wisdom": 0,
+				"charisma": 0
+			},
+			"inGameBonus": {
+				"strength": 0,
+				"dexterity": 0,
+				"constitution": 0,
+				"intelligence": 0,
+				"wisdom": 0,
+				"charisma": 0
+			},
+			"background": "barbarian",
+			"birth": "",
+			"kin": "human",
+			"coins": {
+				"first": 0,
+				"second": 0,
+				"third": 0,
+				"fourth": 0,
+				"fifth": 0
+			},
+			"currentHitPoints": 0,
+			"description": "",
+			"damageDice": {
+				"armed": "d6",
+				"unarmed": "d4"
+			},
+			"stress": "d6",
+			"boons": [
+				"",
+				"",
+				"",
+				"",
+				""
+			],
+			"languages": [
+				"",
+				"",
+				"",
+				"",
+				""
+			],
+			"level": 1,
+			"origin": "barbarian-0",
+			"originType": "barbarian",
+			"playerName": "",
+			"stories": {
+				"00": {
+					"improvements": {
+							"attributes": {
+									"first": {
+											"choice": "none"
+									},
+									"granted": true
+							},
+							"boon": {
+									"granted": false
+							},
+							"hitPoints": 1,
+							"level": "ldoa.levels.names.2"
+					},
+					"title": ""
+				},
+				"01": {
+					"improvements": {
+							"attributes": {
+									"granted": false
+							},
+							"boon": {
+									"choice": "none",
+									"granted": true
+							},
+							"hitPoints": 1,
+							"level": "ldoa.levels.names.3"
+					},
+					"title": ""
+				},
+				"02": {
+					"improvements": {
+							"attributes": {
+									"first": {
+											"choice": "none"
+									},
+									"granted": true,
+									"second": {
+											"choice": "none"
+									}
+							},
+							"boon": {
+									"granted": false
+							},
+							"hitPoints": 1,
+							"level": "ldoa.levels.names.4"
+					},
+					"title": ""
+				},
+				"03": {
+					"improvements": {
+							"attributes": {
+									"granted": false
+							},
+							"boon": {
+									"choice": "none",
+									"granted": true
+							},
+							"hitPoints": 1,
+							"level": "ldoa.levels.names.5"
+					},
+					"title": ""
+				},
+				"04": {
+					"improvements": {
+							"attributes": {
+									"first": {
+											"choice": "none"
+									},
+									"granted": true
+							},
+							"boon": {
+									"granted": false
+							},
+							"hitPoints": 1,
+							"level": "ldoa.levels.names.6"
+					},
+					"title": ""
+				},
+				"05": {
+					"improvements": {
+						"attributes": {
+								"granted": false
+						},
+						"boon": {
+								"choice": "none",
+								"granted": true
+						},
+						"hitPoints": 1,
+						"level": "ldoa.levels.names.7"
+					},
+					"title": ""
+				},
+				"06": {
+					"improvements": {
+						"attributes": {
+							"first": {
+								"choice": "none"
+							},
+							"granted": true,
+							"second": {
+								"choice": "none"
+							}
+						},
+						"boon": {
+							"granted": false
+						},
+						"hitPoints": 1,
+						"level": "ldoa.levels.names.8"
+					},
+					"title": ""
+				},
+				"07": {
+					"improvements": {
+						"attributes": {
+							"granted": false
+						},
+						"boon": {
+							"choice": "none",
+							"granted": true
+						},
+						"hitPoints": 1,
+						"level": "ldoa.levels.names.9"
+					},
+					"title": ""
+				},
+				"08": {
+					"improvements": {
+							"attributes": {
+								"granted": false
+							},
+							"stressDie": "d8",
+							"boon": {
+								"granted": false
+							},
+							"hitPoints": 1,
+							"level": "ldoa.levels.names.10"
+					},
+					"title": ""
+				}
+			},
+			"summoning": {
+				"demon": "unused",
+				"spirit": "unused"
+			},
+			"selectedArmor": "",
+			"tabSelected": "front-page",
+			"creationMode": true
+		},
+		"creature": {
+			"description": "",
+			"level": 1,
+			"hitPoints": 5,
+			"resistances": "",
+			"vulnerabilities": ""
+		}
+	},
+	"creature": {
+		"description": "",
+		"level": 1,
+		"hitPoints": 5,
+		"resistances": "",
+		"vulnerabilities": ""
+	},
+	"Item": {
+		"types": [
+			"inventory",
+			"creature_action",
+			"boon",
+			"origin",
+			"arte"
+		],
+		"templates": {
+			"inventory": "templates/item/inventory-sheet.hbs",
+			"boon": "templates/item/boon-sheet.hbs"
+		},
+		"consumable": {
+			"description": "",
+			"quantity": 1,
+			"rarity": "common",
+			"usageDie": {
+				"current": "^",
+				"maximum": "d4"
+			}
+		},
+		"creature_action": {
+			"attributes": {
+				"strength": false,
+				"dexterity": false,
+				"constitution": false,
+				"intelligence": false,
+				"wisdom": false,
+				"charisma": false
+			},
+			"damage": "",
+			"description": ""
+		},
+		"boon": {
+			"description": "",
+			"power": "balance",
+			"effects": {
+				"attributes": {
+					"strength": 0,
+					"dexterity": 0,
+					"constitution": 0,
+					"intelligence": 0,
+					"wisdom": 0,
+					"charisma": 0
+				},
+				"hitPoints": 0,
+				"initiative": 0,
+				"attackRolls": 0,
+				"damageRolls": 0,
+				"armorRating": 0,
+				"special": ""
+			}
+		},
+		"origin": {
+			"backgrounds": []
+		},
+		"Arte": {
+			"effect": "",
+			"range": "40 feet",
+			"target": "one creature",
+			"roll 1": "",
+			"state": "available"
+		},
+		"inventory": {
+			"subtype": "",
+			"description": "",
+			"rarity": "common",
+			"quantity": 1,
+			"cost": "1d6 * 1",
+			"armorValue": 0,
+			"damage": "",
+			"hands": 1,
+			"notes": ""
+		}
+	}
 }

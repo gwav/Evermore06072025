@@ -12,8 +12,8 @@ import { StartingGearDialog } from "../dialogs/starting-gear-dialog.js";
  */
 function getItemsByItemType(items, desiredType) {
   return items.filter(item => {
-    const customType = item.system?.itemType?.toLowerCase();
-    return customType === desiredType;
+	const customType = item.system?.itemType?.toLowerCase();
+	return customType === desiredType;
   });
 }
 
@@ -647,18 +647,21 @@ console.log("Sheet context:", context);
 		// Equipment filter buttons
 		html.find('.garysv1-filter-button').click(this._onEquipmentFilterClicked.bind(this));
 
+		// Handle weapon selection changes
+		html.find('.garysv1-weapon-select').change(this._onWeaponSelectionChanged.bind(this));
+
 		html.find('.garysv1-weapon-roll').click(ev => {
 			const rollType = ev.currentTarget.dataset.rollType;
 			const select = html.find(`.garysv1-weapon-select[data-action="${rollType}"]`);
 			const itemId = select.val();
-			const item = actor.items.get(itemId);
+			const item = this.actor.items.get(itemId);
 
 			const ability = rollType === 'melee' ? 'str' : 'dex';
 			const rollFormula = `1d20 + @abilities.${ability}.mod`;
 
-			new Roll(rollFormula, actor.getRollData()).roll({async: true}).then(roll => {
+			new Roll(rollFormula, this.actor.getRollData()).roll({async: true}).then(roll => {
 				roll.toMessage({
-					speaker: ChatMessage.getSpeaker({actor}),
+					speaker: ChatMessage.getSpeaker({actor: this.actor}),
 					flavor: `${rollType === 'melee' ? 'Melee' : 'Ranged'} Weapon Resolution: ${item?.name}`
 				});
 			});
@@ -1209,6 +1212,20 @@ console.log("Sheet context:", context);
 			// Handle regular form field changes with the standard submit behavior
 			const formData = new FormDataExtended(this.form);
 			await this._updateObject(event, formData.object);
+	}
+
+	async _onWeaponSelectionChanged(event) {
+			// Handle weapon selection changes
+			const select = event.currentTarget;
+			const weaponId = select.value;
+			const fieldName = select.name;
+			
+			console.log(`🗡️ Weapon selection changed: ${fieldName} = ${weaponId}`);
+			
+			// Update the actor with the new weapon selection
+			const updateData = {};
+			updateData[fieldName] = weaponId;
+			await this.actor.update(updateData);
 	}
 
 	async _updateObject(event, formData) {
@@ -1952,10 +1969,14 @@ console.log("Sheet context:", context);
 		const rangedList = [defaultWeapon];
 
 		weapons.forEach(item => {
-			// Add all weapons to both lists - let players choose
+			const weaponType = item.system?.weaponType || item.system?.type || "";
 			const weaponOption = { id: item._id, name: item.name };
-			meleeList.push(weaponOption);
-			rangedList.push(weaponOption);
+			if (weaponType === "melee" || weaponType === "unarmed") {
+				meleeList.push(weaponOption);
+			}
+			if (weaponType === "ranged") {
+				rangedList.push(weaponOption);
+			}
 		});
 
 		console.log("🗡️ Weapon preparation debug - Total weapons:", weapons.length);

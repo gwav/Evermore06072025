@@ -8,7 +8,6 @@
       "consumable": "Consommable",
       "creature_action": "Action de créature",
       "demon": "Démon",
-      "equipment": "Équipement",
       "boon": "Don",
       "origin": "Origine",
       "spell": "Sort",
@@ -526,7 +525,6 @@
       "consumables": "Consommables",
       "demonName": "Nom",
       "demons": "Démons",
-      "equipment": "Autres Équipements",
       "boons": "Dons",
       "itemName": "Objet",
       "itemQuantity": "Quantité",
@@ -739,7 +737,6 @@
     "tabs": {
       "labels": {
         "background": "Informations de base",
-        "equipment": "Possessions",
         "front": "Principal",
         "magic": "Magie",
         "saga": "Saga"

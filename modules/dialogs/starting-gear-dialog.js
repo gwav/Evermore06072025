@@ -188,7 +188,7 @@ export class StartingGearDialog extends Dialog {
             for (const selectedItem of this.selectedItems) {
                 const itemData = {
                     name: selectedItem.name,
-                    type: "equipment",
+                    type: "inventory",
                     system: {
                         description: `Starting gear item (${selectedItem.unitCost} coins each)`,
                         rarity: "common",

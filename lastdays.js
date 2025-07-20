@@ -15,7 +15,7 @@ import OriginSheet from './modules/sheets/origin-sheet.js';
 import DemonSheet from './modules/sheets/demon-sheet.js';
 import SpellSheet from './modules/sheets/spell-sheet.js';
 import SpiritSheet from './modules/sheets/spirit-sheet.js';
-import { InventoryItemSheet } from "./sheets/inventory-sheet.js";
+import InventoryItemSheet from "./modules/items/inventory-item-sheet.js";
 import WeaponSheet from './modules/sheets/weapon-sheet.js';
 import {logDamageRoll, toggleAttributeTestDisplay} from './modules/chat_messages.js';
 import {getBackgrounds, getOrigins} from './modules/origins.js';
@@ -65,7 +65,7 @@ async function preloadHandlebarsTemplates() {
                    "systems/lastdays/templates/partials/garysv1-languages-tab.hbs",
                    "systems/lastdays/templates/partials/garysv1-saga-tab.hbs",
                    "systems/lastdays/templates/dialogs/language-selection.html"];
-    return(loadTemplates(paths))
+    return(loadTemplates(paths));
 }
 
 Hooks.once("init", function() {
@@ -98,12 +98,12 @@ Hooks.once("init", function() {
     Items.unregisterSheet("core", ItemSheet);
     Items.registerSheet("lastdays", InventoryItemSheet, {
         types: ["inventory"],
-        makeDefault: false
+        makeDefault: true
     });
     Items.registerSheet("lastdays", ConsumableSheet, {types: ["consumable"]});
     Items.registerSheet("lastdays", CreatureActionSheet, {types: ["creature_action"]});
     Items.registerSheet("lastdays", DemonSheet, {types: ["demon"]});
-    Items.registerSheet("lastdays", EquipmentSheet, {types: ["equipment"]});
+    //Items.registerSheet("lastdays", EquipmentSheet, {types: ["equipment"]});
     Items.registerSheet("lastdays", BoonSheet, {types: ["boon"]});
     Items.registerSheet("lastdays", OriginSheet, {types: ["origin"]});
     Items.registerSheet("lastdays", SpellSheet, {types: ["spell"]});
@@ -191,18 +191,24 @@ Hooks.once("init", function() {
         return args.join('');
     });
 
+    // Register helper for string splitting
+    Handlebars.registerHelper("split", (str, delimiter) => {
+        if (typeof str !== 'string') return [];
+        return str.split(delimiter || ',');
+    });
+
     Handlebars.registerHelper("backgroundSelect", function(offset, options) {
-    	let backgrounds = {"": ""};
-    	let labelKey    = `ldoa.fields.labels.${offset}Background`;
-    	let context     = {field:    `../data.backgrounds.${offset}`,
+        let backgrounds = {"": ""};
+        let labelKey    = `ldoa.fields.labels.${offset}Background`;
+        let context     = {field:    `../data.backgrounds.${offset}`,
                            labelKey: labelKey,
                            options:  backgrounds};
 
         for(var key in ldoaConfiguration.backgroundList) {
             if(options.hash.fromOrigin) {
-            	if(ldoaConfiguration.backgroundList[key].origin === this.actor.system.origin) {
-            		backgrounds[key] = ldoaConfiguration.backgroundList[key].name;
-            	}
+                if(ldoaConfiguration.backgroundList[key].origin === this.actor.system.origin) {
+                    backgrounds[key] = ldoaConfiguration.backgroundList[key].name;
+                }
             } else {
                 backgrounds[key] = ldoaConfiguration.backgroundList[key].name;
             }
